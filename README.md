@@ -294,27 +294,3 @@ SQLite is the tested backend (`data/obli_rca.db`). The MySQL 8.x schema is at
 `src/obli_rca/storage/mysql_schema.sql`; the table names and separation match
 the paper. For a MySQL deployment, set `OBLIRCA_DB_URL` and replace the SQLite
 upserts with `ON DUPLICATE KEY UPDATE`.
-
-## 9. Tests and validation
-
-```bash
-python -m pytest -q
-python scripts/validate_obligations.py
-python scripts/check_scenarios.py
-```
-
-The 41 tests cover obligation loading, log parsing, syscall-CFG matching,
-cross-application search, storage round trips, metrics, object mapping,
-explanations, taint paths, statistics, baseline adapters, artifact counts,
-edge cases, and an end-to-end online fixture.
-
-## 10. Limitations
-
-- The benchmark directories are scaffolds. Source trees, configuration, and
-  sysdig logs must be supplied before a scenario can run.
-- The online stage uses only audit logs, the symptom event, and incident-version
-  source. Patches, fixed versions, PoCs, and reference root causes are excluded.
-- The prototype does not claim a symbolic proof when angr is unavailable; the
-  fallback is a source-evidence check and is reported as such.
-- The obligation library is frozen before evaluation; the category distribution
-  and graph counts follow the paper's appendix.
