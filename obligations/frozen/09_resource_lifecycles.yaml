@@ -1,0 +1,279 @@
+id: OBL-RLIFE-001
+category: Resource Lifecycles
+category_id: 9
+version: 1.0.0
+summary: Every acquired resource must be released exactly once by a valid owner across
+  all paths.
+roles:
+  source:
+    name: resource
+    description: file, connection, handle, or memory resource
+    kind: object
+  value:
+    name: handle
+    description: handle or reference used to access the resource
+    kind: value
+  target:
+    name: release
+    description: release or destruction operation
+    kind: object
+  policy:
+    name: owner
+    description: owner or lifetime rule
+    kind: object
+  aux:
+    name: operation
+    description: acquisition, transfer, or use operation
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+- id: G7
+  description: boundary-crossing organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: boundary
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: crosses
+    description: ''
+  - src: n2
+    dst: n3
+    relation: delivers
+    description: ''
+- id: G8
+  description: state-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: state
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: updates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: enables
+    description: ''
+conditions:
+  pre:
+  - a resource is acquired, transferred, or released
+  must:
+  - every acquired resource is released exactly once by a valid owner
+  stage:
+  - before acquisition and at every transfer or error path
+  scope:
+  - until the resource is destroyed; recheck after fork, duplication, or exception
+query_manual:
+- id: Q1
+  what: Where is the resource acquired?
+  where: trace acquisition and the resulting handle
+  interpret: a handle with a clear owner answers the question
+  next: continue if ownership is established
+- id: Q2
+  what: Who owns the resource after each transfer?
+  where: trace transfers, duplication, and callbacks
+  interpret: a single valid owner at each point answers the question
+  next: record a gap if ownership is ambiguous
+- id: Q3
+  what: Is the resource released on every error path?
+  where: inspect unwind, timeout, and cancellation
+  interpret: a release that matches every acquisition answers the question
+  next: continue if all paths release
+- id: Q4
+  what: Can the resource be released twice?
+  where: inspect aliases, callbacks, and idempotency
+  interpret: a release that is exactly once answers the question
+  next: record a gap if double release is possible
+- id: Q5
+  what: Does the release order respect dependencies?
+  where: inspect nested resources and destruction order
+  interpret: a dependency-safe order answers the question
+  next: continue if the order is safe
+provenance:
+  category_id: 9
+  graph_count: 8
+  source_cases: 41
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

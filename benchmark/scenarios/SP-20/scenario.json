@@ -1,0 +1,38 @@
+{
+  "id": "SP-20",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-4424"
+  ],
+  "applications": [
+    "libarchive / bsdtar"
+  ],
+  "versions": {
+    "vulnerable": "commit e480b80eb4ae2fe7efab63216080ef6a43dc1c9b",
+    "fixed": "commit e1907c5832b6489c7b4198b0825f857c93a03c10"
+  },
+  "directory": "benchmark/scenarios/SP-20",
+  "log_path": "data/logs/SP-20.sysdig",
+  "source_root": "data/sources/SP-20/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "libarchive/archive_read_support_format_rar.c",
+          "function": "parse_codes",
+          "line": 2551
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

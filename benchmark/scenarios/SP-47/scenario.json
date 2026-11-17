@@ -1,0 +1,32 @@
+{
+  "id": "SP-47",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-58050"
+  ],
+  "applications": [
+    "pcre2"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent 882b4247134c7ac6d2a4ebd18b3520413ae71c18",
+    "fixed": "fix-commit a141712e5967d448c7ce13090ab530c8e3d82254"
+  },
+  "directory": "benchmark/scenarios/SP-47",
+  "log_path": "data/logs/SP-47.sysdig",
+  "source_root": "data/sources/SP-47/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "scenario_id": "CH-09",
+  "status": "not_captured",
+  "format": "sysdig",
+  "expected_path": "data/logs/CH-09.sysdig",
+  "note": "Capture the incident-version syscall log and place it at the expected path."
+}

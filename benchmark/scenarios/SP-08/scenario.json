@@ -1,0 +1,38 @@
+{
+  "id": "SP-08",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-11494"
+  ],
+  "applications": [
+    "GNU binutils / ld"
+  ],
+  "versions": {
+    "vulnerable": "commit 6b21c8b2ecfef5c95142cbc2c32f185cb1c26ab0",
+    "fixed": "commit b6ac5a8a5b82f0ae6a4642c8d7149b325f4cc60a"
+  },
+  "directory": "benchmark/scenarios/SP-08",
+  "log_path": "data/logs/SP-08.sysdig",
+  "source_root": "data/sources/SP-08/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "bfd/elfxx-x86.c",
+          "function": "_bfd_x86_elf_late_size_sections",
+          "line": 2470
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "scenario_id": "SP-45",
+  "status": "not_captured",
+  "format": "sysdig",
+  "expected_path": "data/logs/SP-45.sysdig",
+  "note": "Capture the incident-version syscall log and place it at the expected path."
+}

@@ -1,0 +1,47 @@
+{
+  "scenario_id": "SP-25",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "pngrtran.c",
+      "function": "png_init_read_transformations",
+      "line": 1786
+    },
+    {
+      "file": "pngrtran.c",
+      "function": "png_init_read_transformations",
+      "line": 1790
+    },
+    {
+      "file": "pngrtran.c",
+      "function": "png_init_read_transformations",
+      "line": 1794
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "pngrtran.c",
+          "function": "png_init_read_transformations",
+          "line": 1786
+        },
+        {
+          "file": "pngrtran.c",
+          "function": "png_init_read_transformations",
+          "line": 1790
+        },
+        {
+          "file": "pngrtran.c",
+          "function": "png_init_read_transformations",
+          "line": 1794
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

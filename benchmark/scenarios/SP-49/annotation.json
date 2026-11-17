@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-49",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "ext/fts5/fts5_index.c",
+      "function": "fts5MergeRowidLists",
+      "line": 6108
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "ext/fts5/fts5_index.c",
+          "function": "fts5MergeRowidLists",
+          "line": 6108
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

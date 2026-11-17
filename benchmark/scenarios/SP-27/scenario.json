@@ -1,0 +1,32 @@
+{
+  "id": "SP-27",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-66293"
+  ],
+  "applications": [
+    "libpng"
+  ],
+  "versions": {
+    "vulnerable": "1.6.51",
+    "fixed": "1.6.52"
+  },
+  "directory": "benchmark/scenarios/SP-27",
+  "log_path": "data/logs/SP-27.sysdig",
+  "source_root": "data/sources/SP-27/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "SP-33",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-49795"
+  ],
+  "applications": [
+    "libxml2"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent c340e419505cf4bf1d9ed7019a87cc00ec200434",
+    "fixed": "fix-commit c24909ba2601848825b49a60f988222da3019667"
+  },
+  "directory": "benchmark/scenarios/SP-33",
+  "log_path": "data/logs/SP-33.sysdig",
+  "source_root": "data/sources/SP-33/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

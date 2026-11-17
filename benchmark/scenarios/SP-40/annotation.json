@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-40",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "source/fitz/draw-unpack.c",
+      "function": "fz_unpack_stream",
+      "line": 440
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "source/fitz/draw-unpack.c",
+          "function": "fz_unpack_stream",
+          "line": 440
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

@@ -1,0 +1,73 @@
+app:
+  name: ObliRCA
+  version: "0.1.0"
+  data_dir: data
+  log_dir: logs
+
+llm:
+  provider: openrouter
+  base_url: ${OBLIRCA_BASE_URL:-https://openrouter.ai/api/v1}
+  model: ${OBLIRCA_MODEL:-deepseek/deepseek-chat-v3.1}
+  api_key_env: OPENROUTER_API_KEY
+  timeout_seconds: 90
+  temperature: 0.1
+  max_tokens: 2400
+  retries: 2
+  mock_when_missing_key: true
+
+storage:
+  url: ${OBLIRCA_DB_URL:-sqlite:///data/obli_rca.db}
+  obligation_table_prefix: obl_
+  investigation_table_prefix: inv_
+  dedupe_graphs_by_semantic_hash: true
+
+offline:
+  corpus: data/corpus.jsonl
+  obligation_dir: obligations
+  max_revisions: 3
+  top_k:
+    single_program: 1
+    multiple_root: 3
+    cross_program: 5
+  acceptance:
+    require_abstract_roles: true
+    require_conditions: true
+    require_query_manual: true
+    forbid_concrete_identifiers: true
+  human_queue: data/human_review_queue.jsonl
+  reproduction:
+    enabled: false
+    docker_timeout_seconds: 600
+    sysdig_container_image: obli-rca/sysdig:local
+
+online:
+  localization:
+    provenance_backend: sysdig
+    max_hops: 4
+    max_peer_queries: 12
+    cfgs_from: source
+    joern_enabled: true
+    include_context_syscalls: true
+  soi:
+    max_parallel: 10
+    tool_budget: 24
+    early_exit: true
+    max_questions_per_object: 8
+  rank:
+    merge_duplicates: true
+    angr_enabled: false
+    local_constraint_timeout_seconds: 60
+    feedback_rounds: 2
+    rerank_top_n: 20
+
+evaluation:
+  metrics: [f_at_k, l_at_k, mrr_at_10, recall_at_5, precision_at_5, rootset_at_k]
+  k_values: [1, 3, 5, 10]
+  cost:
+    token_price_input_per_million: 0.0
+    token_price_output_per_million: 0.0
+
+logging:
+  level: INFO
+  json: false
+  file: logs/obli_rca.log

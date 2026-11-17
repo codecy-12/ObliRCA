@@ -1,0 +1,15 @@
+{
+  "scenario_id": "SP-10",
+  "status": "confirmed_ineligible",
+  "n_l": false,
+  "locations": [],
+  "roots": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

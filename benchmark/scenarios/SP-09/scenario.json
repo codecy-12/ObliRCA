@@ -1,0 +1,32 @@
+{
+  "id": "SP-09",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-11495"
+  ],
+  "applications": [
+    "GNU binutils / ld"
+  ],
+  "versions": {
+    "vulnerable": "commit bf7c1b207d84707b8bb99fb57122e3e58d3065fe",
+    "fixed": "commit 6b21c8b2ecfef5c95142cbc2c32f185cb1c26ab0"
+  },
+  "directory": "benchmark/scenarios/SP-09",
+  "log_path": "data/logs/SP-09.sysdig",
+  "source_root": "data/sources/SP-09/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "confirmed_ineligible",
+  "metadata": {
+    "language": "C"
+  }
+}

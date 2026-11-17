@@ -1,0 +1,407 @@
+id: OBL-PROTO-001
+category: Protocol State Constraints
+category_id: 4
+version: 1.0.0
+summary: A message must be valid for the current protocol state and the negotiated
+  version before it is dispatched.
+roles:
+  source:
+    name: peer
+    description: remote peer or session endpoint
+    kind: object
+  value:
+    name: message
+    description: protocol message or frame
+    kind: value
+  target:
+    name: state
+    description: current protocol state or session state
+    kind: object
+  policy:
+    name: expected_state
+    description: expected state, version, or transition rule
+    kind: object
+  aux:
+    name: dispatcher
+    description: parser or state-machine dispatcher
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+- id: G7
+  description: boundary-crossing organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: boundary
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: crosses
+    description: ''
+  - src: n2
+    dst: n3
+    relation: delivers
+    description: ''
+- id: G8
+  description: state-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: state
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: updates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: enables
+    description: ''
+- id: G9
+  description: multi-source organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n3
+    relation: influences
+    description: ''
+  - src: n2
+    dst: n3
+    relation: influences
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G10
+  description: transformation organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: is_transformed
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_consumed
+    description: ''
+  - src: n4
+    dst: n3
+    relation: parameterizes
+    description: ''
+- id: G11
+  description: range/offset organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: aux
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: defines
+    description: ''
+  - src: n4
+    dst: n3
+    relation: offsets
+    description: ''
+  - src: n2
+    dst: n3
+    relation: limits
+    description: ''
+- id: G12
+  description: ownership organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: owner
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n2
+    dst: n3
+    relation: owns
+    description: ''
+  - src: n1
+    dst: n3
+    relation: accesses
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+conditions:
+  pre:
+  - a message is accepted on an existing or new session
+  must:
+  - the message is valid for the current protocol state and the negotiated version
+  stage:
+  - before the message is dispatched or a state transition is committed
+  scope:
+  - until the transition is committed; recheck after retry, resumption, or renegotiation
+query_manual:
+- id: Q1
+  what: Which state transition does this message require?
+  where: trace the state variable and the transition table
+  interpret: a transition guard that covers the message answers the question
+  next: continue if the transition is valid
+- id: Q2
+  what: Is the negotiated version part of the check?
+  where: trace version negotiation and feature flags
+  interpret: a check that uses the negotiated version answers the question
+  next: record a gap if a version-dependent feature is unchecked
+- id: Q3
+  what: Can a resumed or retried session skip the transition?
+  where: inspect resumption, retry, and replay paths
+  interpret: a resumption path that revalidates state answers the question
+  next: continue if the state is reestablished
+- id: Q4
+  what: Can messages arrive out of order?
+  where: inspect queues, demultiplexing, and sequence numbers
+  interpret: an ordering rule that is enforced answers the question
+  next: record a gap if reordering is accepted
+- id: Q5
+  what: Does the state update commit before the side effect?
+  where: inspect the order of state write and dispatch
+  interpret: a commit-before-dispatch order answers the question
+  next: continue if the side effect is after the commit
+provenance:
+  category_id: 4
+  graph_count: 12
+  source_cases: 91
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

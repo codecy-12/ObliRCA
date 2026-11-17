@@ -1,0 +1,37 @@
+{
+  "scenario_id": "SP-50",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "ext/fts5/fts5_index.c",
+      "function": "fts5DoSecureDelete",
+      "line": 5520
+    },
+    {
+      "file": "ext/fts5/fts5_index.c",
+      "function": "fts5DoSecureDelete",
+      "line": 5526
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "ext/fts5/fts5_index.c",
+          "function": "fts5DoSecureDelete",
+          "line": 5520
+        },
+        {
+          "file": "ext/fts5/fts5_index.c",
+          "function": "fts5DoSecureDelete",
+          "line": 5526
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

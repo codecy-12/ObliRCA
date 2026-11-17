@@ -1,0 +1,38 @@
+{
+  "id": "SP-28",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-22695"
+  ],
+  "applications": [
+    "libpng"
+  ],
+  "versions": {
+    "vulnerable": "1.6.53",
+    "fixed": "1.6.54"
+  },
+  "directory": "benchmark/scenarios/SP-28",
+  "log_path": "data/logs/SP-28.sysdig",
+  "source_root": "data/sources/SP-28/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "pngread.c",
+          "function": "png_image_read_direct_scaled",
+          "line": 3173
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

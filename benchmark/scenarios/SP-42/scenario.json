@@ -1,0 +1,38 @@
+{
+  "id": "SP-42",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-92413"
+  ],
+  "applications": [
+    "MuPDF"
+  ],
+  "versions": {
+    "vulnerable": "source ref b6d17493700c621c0e70036980a6ebd06d2202c9",
+    "fixed": "fix commit 3df1e30f9d7b77260e13bd0dbe1928ddeba8386e"
+  },
+  "directory": "benchmark/scenarios/SP-42",
+  "log_path": "data/logs/SP-42.sysdig",
+  "source_root": "data/sources/SP-42/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "source/pdf/pdf-stream.c",
+          "function": "pdf_open_filter",
+          "line": 413
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

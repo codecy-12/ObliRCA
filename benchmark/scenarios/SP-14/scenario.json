@@ -1,0 +1,32 @@
+{
+  "id": "SP-14",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-69650"
+  ],
+  "applications": [
+    "GNU binutils / readelf"
+  ],
+  "versions": {
+    "vulnerable": "commit 66a3492ce68e1ae45b2489bd9a815c39ea5d7f66",
+    "fixed": "commit ea4bc025abdba85a90e26e13f551c16a44bfa921"
+  },
+  "directory": "benchmark/scenarios/SP-14",
+  "log_path": "data/logs/SP-14.sysdig",
+  "source_root": "data/sources/SP-14/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "confirmed_ineligible",
+  "metadata": {
+    "language": "C"
+  }
+}

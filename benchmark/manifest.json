@@ -1,0 +1,2798 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "source": "paper benchmark manifest",
+    "note": "Docker scaffolds are auditable deployment definitions; source trees and logs are external.",
+    "paper_counts": {
+      "scenarios": 102,
+      "cves": 105,
+      "applications": 38,
+      "n_l": 59
+    }
+  },
+  "scenarios": [
+    {
+      "id": "CP-01",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-58098"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-01",
+      "log_path": "data/logs/CP-01.sysdig",
+      "source_root": "data/sources/CP-01/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-02",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-34355"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-02",
+      "log_path": "data/logs/CP-02.sysdig",
+      "source_root": "data/sources/CP-02/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-03",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-34356"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-03",
+      "log_path": "data/logs/CP-03.sysdig",
+      "source_root": "data/sources/CP-03/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-04",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-63045"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-04",
+      "log_path": "data/logs/CP-04.sysdig",
+      "source_root": "data/sources/CP-04/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-05",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-63686"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-05",
+      "log_path": "data/logs/CP-05.sysdig",
+      "source_root": "data/sources/CP-05/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-06",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-47360"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-06",
+      "log_path": "data/logs/CP-06.sysdig",
+      "source_root": "data/sources/CP-06/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-07",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-63718"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-07",
+      "log_path": "data/logs/CP-07.sysdig",
+      "source_root": "data/sources/CP-07/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-08",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-1642"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-08",
+      "log_path": "data/logs/CP-08.sysdig",
+      "source_root": "data/sources/CP-08/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-09",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-28753"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-09",
+      "log_path": "data/logs/CP-09.sysdig",
+      "source_root": "data/sources/CP-09/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-10",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-42926"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-10",
+      "log_path": "data/logs/CP-10.sysdig",
+      "source_root": "data/sources/CP-10/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-11",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-60005"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-11",
+      "log_path": "data/logs/CP-11.sysdig",
+      "source_root": "data/sources/CP-11/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-12",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-64503"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-12",
+      "log_path": "data/logs/CP-12.sysdig",
+      "source_root": "data/sources/CP-12/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-13",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-64524"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-13",
+      "log_path": "data/logs/CP-13.sysdig",
+      "source_root": "data/sources/CP-13/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-14",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-105326"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-14",
+      "log_path": "data/logs/CP-14.sysdig",
+      "source_root": "data/sources/CP-14/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-15",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-55453"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-15",
+      "log_path": "data/logs/CP-15.sysdig",
+      "source_root": "data/sources/CP-15/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-16",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-34978"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-16",
+      "log_path": "data/logs/CP-16.sysdig",
+      "source_root": "data/sources/CP-16/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-17",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-35535"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-17",
+      "log_path": "data/logs/CP-17.sysdig",
+      "source_root": "data/sources/CP-17/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-18",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-111581"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-18",
+      "log_path": "data/logs/CP-18.sysdig",
+      "source_root": "data/sources/CP-18/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-19",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-39919"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-19",
+      "log_path": "data/logs/CP-19.sysdig",
+      "source_root": "data/sources/CP-19/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-20",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-110133"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-20",
+      "log_path": "data/logs/CP-20.sysdig",
+      "source_root": "data/sources/CP-20/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "insufficient_evidence",
+      "metadata": {}
+    },
+    {
+      "id": "CP-21",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-112177"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-21",
+      "log_path": "data/logs/CP-21.sysdig",
+      "source_root": "data/sources/CP-21/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "insufficient_evidence",
+      "metadata": {}
+    },
+    {
+      "id": "CP-22",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-32728"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-22",
+      "log_path": "data/logs/CP-22.sysdig",
+      "source_root": "data/sources/CP-22/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-23",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-6253"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-23",
+      "log_path": "data/logs/CP-23.sysdig",
+      "source_root": "data/sources/CP-23/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-24",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-14524"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-24",
+      "log_path": "data/logs/CP-24.sysdig",
+      "source_root": "data/sources/CP-24/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-25",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-86414"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-25",
+      "log_path": "data/logs/CP-25.sysdig",
+      "source_root": "data/sources/CP-25/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-26",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-48384"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-26",
+      "log_path": "data/logs/CP-26.sysdig",
+      "source_root": "data/sources/CP-26/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-27",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-55188"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-27",
+      "log_path": "data/logs/CP-27.sysdig",
+      "source_root": "data/sources/CP-27/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-28",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-53816"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-28",
+      "log_path": "data/logs/CP-28.sysdig",
+      "source_root": "data/sources/CP-28/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-29",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2026-6429"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-29",
+      "log_path": "data/logs/CP-29.sysdig",
+      "source_root": "data/sources/CP-29/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CP-30",
+      "group": "cross_program",
+      "cves": [
+        "CVE-2025-61984"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CP-30",
+      "log_path": "data/logs/CP-30.sysdig",
+      "source_root": "data/sources/CP-30/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-01",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-34980",
+        "CVE-2026-34990"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-01",
+      "log_path": "data/logs/CH-01.sysdig",
+      "source_root": "data/sources/CH-01/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-02",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2025-6018",
+        "CVE-2025-6019"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-02",
+      "log_path": "data/logs/CH-02.sysdig",
+      "source_root": "data/sources/CH-02/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-03",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-34982"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-03",
+      "log_path": "data/logs/CH-03.sysdig",
+      "source_root": "data/sources/CH-03/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-04",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2025-54782"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-04",
+      "log_path": "data/logs/CH-04.sysdig",
+      "source_root": "data/sources/CH-04/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-05",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2025-66200"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-05",
+      "log_path": "data/logs/CH-05.sysdig",
+      "source_root": "data/sources/CH-05/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-06",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-22778"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-06",
+      "log_path": "data/logs/CH-06.sysdig",
+      "source_root": "data/sources/CH-06/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "insufficient_evidence",
+      "metadata": {}
+    },
+    {
+      "id": "CH-07",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-25481"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-07",
+      "log_path": "data/logs/CH-07.sysdig",
+      "source_root": "data/sources/CH-07/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-08",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-28792"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-08",
+      "log_path": "data/logs/CH-08.sysdig",
+      "source_root": "data/sources/CH-08/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-09",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-33478"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-09",
+      "log_path": "data/logs/CH-09.sysdig",
+      "source_root": "data/sources/CH-09/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-10",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-33419"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-10",
+      "log_path": "data/logs/CH-10.sysdig",
+      "source_root": "data/sources/CH-10/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "insufficient_evidence",
+      "metadata": {}
+    },
+    {
+      "id": "CH-11",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-41679"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-11",
+      "log_path": "data/logs/CH-11.sysdig",
+      "source_root": "data/sources/CH-11/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-12",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-50545"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-12",
+      "log_path": "data/logs/CH-12.sysdig",
+      "source_root": "data/sources/CH-12/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-13",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-101258"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-13",
+      "log_path": "data/logs/CH-13.sysdig",
+      "source_root": "data/sources/CH-13/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-14",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-57125"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-14",
+      "log_path": "data/logs/CH-14.sysdig",
+      "source_root": "data/sources/CH-14/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-15",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-67426"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-15",
+      "log_path": "data/logs/CH-15.sysdig",
+      "source_root": "data/sources/CH-15/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": false,
+      "annotation_status": "confirmed_missing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-16",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-44221"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-16",
+      "log_path": "data/logs/CH-16.sysdig",
+      "source_root": "data/sources/CH-16/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-17",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-57941"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-17",
+      "log_path": "data/logs/CH-17.sysdig",
+      "source_root": "data/sources/CH-17/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-18",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-28268"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-18",
+      "log_path": "data/logs/CH-18.sysdig",
+      "source_root": "data/sources/CH-18/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-19",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2026-95101"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-19",
+      "log_path": "data/logs/CH-19.sysdig",
+      "source_root": "data/sources/CH-19/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "CH-20",
+      "group": "multiple_root",
+      "cves": [
+        "CVE-2025-59159",
+        "CVE-2026-44650"
+      ],
+      "applications": [],
+      "versions": {},
+      "directory": "benchmark/scenarios/CH-20",
+      "log_path": "data/logs/CH-20.sysdig",
+      "source_root": "data/sources/CH-20/vuln",
+      "symptom": null,
+      "hops": 1,
+      "root_causes": [],
+      "n_l": true,
+      "annotation_status": "confirmed_existing_guard",
+      "metadata": {}
+    },
+    {
+      "id": "SP-01",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-53817"
+      ],
+      "applications": [
+        "7-Zip / 7zz"
+      ],
+      "versions": {
+        "vulnerable": "24.09",
+        "fixed": "25.00"
+      },
+      "directory": "benchmark/scenarios/SP-01",
+      "log_path": "data/logs/SP-01.sysdig",
+      "source_root": "data/sources/SP-01/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "CPP/7zip/Archive/ComHandler.cpp",
+              "function": "NArchive::NCom::CHandler::GetStream",
+              "line": 851
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C++"
+      }
+    },
+    {
+      "id": "SP-02",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-56132"
+      ],
+      "applications": [
+        "expat"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent a18aceeb340b1975f3338af8e088490f0d4d6c19",
+        "fixed": "fix-commit 08baa7ef9d168b99094249998fd78f8d190526e5"
+      },
+      "directory": "benchmark/scenarios/SP-02",
+      "log_path": "data/logs/SP-02.sysdig",
+      "source_root": "data/sources/SP-02/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "expat/lib/xmlparse.c",
+              "function": "doProlog",
+              "line": 5921
+            },
+            {
+              "file": "expat/lib/xmlparse.c",
+              "function": "doProlog",
+              "line": 5946
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-03",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-5244"
+      ],
+      "applications": [
+        "GNU binutils / ld"
+      ],
+      "versions": {
+        "vulnerable": "commit 6fe4e5bd10b996428a557e036c07c5839a8e0a49",
+        "fixed": "commit d1458933830456e54223d9fc61f0d9b3a19256f5"
+      },
+      "directory": "benchmark/scenarios/SP-03",
+      "log_path": "data/logs/SP-03.sysdig",
+      "source_root": "data/sources/SP-03/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "confirmed_ineligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-04",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11082"
+      ],
+      "applications": [
+        "GNU binutils / ld"
+      ],
+      "versions": {
+        "vulnerable": "commit 58f22c76b29088c69eb6f272da7f20fdc5a80c50",
+        "fixed": "commit ea1a0737c7692737a644af0486b71e4a392cbca8"
+      },
+      "directory": "benchmark/scenarios/SP-04",
+      "log_path": "data/logs/SP-04.sysdig",
+      "source_root": "data/sources/SP-04/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "bfd/elf-eh-frame.c",
+              "function": "_bfd_elf_parse_eh_frame",
+              "line": 756
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-05",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11083"
+      ],
+      "applications": [
+        "GNU binutils / ld"
+      ],
+      "versions": {
+        "vulnerable": "commit a1d2c8f677c104f89dc7d55bc0285a3c3976285e",
+        "fixed": "commit 9ca499644a21ceb3f946d1c179c38a83be084490"
+      },
+      "directory": "benchmark/scenarios/SP-05",
+      "log_path": "data/logs/SP-05.sysdig",
+      "source_root": "data/sources/SP-05/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "bfd/elfcode.h",
+              "function": "elf_swap_shdr_in",
+              "line": 337
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-06",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11412"
+      ],
+      "applications": [
+        "GNU binutils / ld"
+      ],
+      "versions": {
+        "vulnerable": "commit 4fab244ece36dc7e30f3900102a6f061daeb47e4",
+        "fixed": "commit 047435dd988a3975d40c6626a8f739a0b2e154bc"
+      },
+      "directory": "benchmark/scenarios/SP-06",
+      "log_path": "data/logs/SP-06.sysdig",
+      "source_root": "data/sources/SP-06/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "confirmed_ineligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-07",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11414"
+      ],
+      "applications": [
+        "GNU binutils / ld"
+      ],
+      "versions": {
+        "vulnerable": "commit 1108620d7a521f1c85d2f629031ce0fbae14e331",
+        "fixed": "commit aeaaa9af6359c8e394ce9cf24911fec4f4d23703"
+      },
+      "directory": "benchmark/scenarios/SP-07",
+      "log_path": "data/logs/SP-07.sysdig",
+      "source_root": "data/sources/SP-07/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "bfd/elflink.c",
+              "function": "set_symbol_value",
+              "line": 9181
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-08",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11494"
+      ],
+      "applications": [
+        "GNU binutils / ld"
+      ],
+      "versions": {
+        "vulnerable": "commit 6b21c8b2ecfef5c95142cbc2c32f185cb1c26ab0",
+        "fixed": "commit b6ac5a8a5b82f0ae6a4642c8d7149b325f4cc60a"
+      },
+      "directory": "benchmark/scenarios/SP-08",
+      "log_path": "data/logs/SP-08.sysdig",
+      "source_root": "data/sources/SP-08/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "bfd/elfxx-x86.c",
+              "function": "_bfd_x86_elf_late_size_sections",
+              "line": 2470
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-09",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11495"
+      ],
+      "applications": [
+        "GNU binutils / ld"
+      ],
+      "versions": {
+        "vulnerable": "commit bf7c1b207d84707b8bb99fb57122e3e58d3065fe",
+        "fixed": "commit 6b21c8b2ecfef5c95142cbc2c32f185cb1c26ab0"
+      },
+      "directory": "benchmark/scenarios/SP-09",
+      "log_path": "data/logs/SP-09.sysdig",
+      "source_root": "data/sources/SP-09/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "confirmed_ineligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-10",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-7545"
+      ],
+      "applications": [
+        "GNU binutils / objcopy"
+      ],
+      "versions": {
+        "vulnerable": "commit 41461010eb7c79fee7a9d5f6209accdaac66cc6b",
+        "fixed": "commit 08c3cbe5926e4d355b5cb70bbec2b1eeb40c2944"
+      },
+      "directory": "benchmark/scenarios/SP-10",
+      "log_path": "data/logs/SP-10.sysdig",
+      "source_root": "data/sources/SP-10/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "confirmed_ineligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-11",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-7546"
+      ],
+      "applications": [
+        "GNU binutils / objcopy"
+      ],
+      "versions": {
+        "vulnerable": "commit a66ed82cf04ed4527882af57e2bffec065ed47e0",
+        "fixed": "commit 41461010eb7c79fee7a9d5f6209accdaac66cc6b"
+      },
+      "directory": "benchmark/scenarios/SP-11",
+      "log_path": "data/logs/SP-11.sysdig",
+      "source_root": "data/sources/SP-11/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "bfd/elf.c",
+              "function": "bfd_elf_set_group_contents",
+              "line": 3977
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-12",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-5245"
+      ],
+      "applications": [
+        "GNU binutils / objdump"
+      ],
+      "versions": {
+        "vulnerable": "commit 7bc46c997839cbcb02f987f4cbf776b7a3bcc6f8",
+        "fixed": "commit 6c3458a8b7ee7d39f070c7b2350851cb2110c65a"
+      },
+      "directory": "benchmark/scenarios/SP-12",
+      "log_path": "data/logs/SP-12.sysdig",
+      "source_root": "data/sources/SP-12/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "binutils/debug.c",
+              "function": "debug_type_samep",
+              "line": 3100
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-13",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11081"
+      ],
+      "applications": [
+        "GNU binutils / objdump"
+      ],
+      "versions": {
+        "vulnerable": "commit 3ac272c1f115da7bfbb872bf7ad9aa72f42e0c01",
+        "fixed": "commit f87a66db645caf8cc0e6fc87b0c28c78a38af59b"
+      },
+      "directory": "benchmark/scenarios/SP-13",
+      "log_path": "data/logs/SP-13.sysdig",
+      "source_root": "data/sources/SP-13/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "binutils/objdump.c",
+              "function": "dump_dwarf_section",
+              "line": 4488
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-14",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-69650"
+      ],
+      "applications": [
+        "GNU binutils / readelf"
+      ],
+      "versions": {
+        "vulnerable": "commit 66a3492ce68e1ae45b2489bd9a815c39ea5d7f66",
+        "fixed": "commit ea4bc025abdba85a90e26e13f551c16a44bfa921"
+      },
+      "directory": "benchmark/scenarios/SP-14",
+      "log_path": "data/logs/SP-14.sysdig",
+      "source_root": "data/sources/SP-14/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "confirmed_ineligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-15",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-49014"
+      ],
+      "applications": [
+        "jq"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent edbc1da8093f55f8e7e68f29e93abcf2e19c5aa0",
+        "fixed": "fix-commit 499c91bca9d4d027833bc62787d1bb075c03680e"
+      },
+      "directory": "benchmark/scenarios/SP-15",
+      "log_path": "data/logs/SP-15.sysdig",
+      "source_root": "data/sources/SP-15/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "src/builtin.c",
+              "function": "f_strflocaltime",
+              "line": 1821
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-16",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-33947"
+      ],
+      "applications": [
+        "jq"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 2f09060afab23fe9390cce7cb860b10416e1bf5f",
+        "fixed": "fix-commit fb59f1491058d58bdc3e8dd28f1773d1ac690a1f"
+      },
+      "directory": "benchmark/scenarios/SP-16",
+      "log_path": "data/logs/SP-16.sysdig",
+      "source_root": "data/sources/SP-16/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-17",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-39956"
+      ],
+      "applications": [
+        "jq"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent e47e56d226519635768e6aab2f38f0ab037c09e5",
+        "fixed": "fix-commit fdf8ef0f0810e3d365cdd5160de43db46f57ed03"
+      },
+      "directory": "benchmark/scenarios/SP-17",
+      "log_path": "data/logs/SP-17.sysdig",
+      "source_root": "data/sources/SP-17/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-18",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-5915"
+      ],
+      "applications": [
+        "libarchive / bsdtar"
+      ],
+      "versions": {
+        "vulnerable": "commit 09685126fcec664e2b8ca595e1fc371bd494d209",
+        "fixed": "commit 60e2ecfcdbbfa261cfbc6950c9b4c89bab46c5bf"
+      },
+      "directory": "benchmark/scenarios/SP-18",
+      "log_path": "data/logs/SP-18.sysdig",
+      "source_root": "data/sources/SP-18/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "confirmed_ineligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-19",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-5917"
+      ],
+      "applications": [
+        "libarchive / bsdtar"
+      ],
+      "versions": {
+        "vulnerable": "commit be8d08868c9bd9ebc2e27eeb7c3df74e4749bb91",
+        "fixed": "commit 14f8dca480161a118360955f8958e1dda05a6aba"
+      },
+      "directory": "benchmark/scenarios/SP-19",
+      "log_path": "data/logs/SP-19.sysdig",
+      "source_root": "data/sources/SP-19/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "libarchive/archive_write_set_format_pax.c",
+              "function": "build_ustar_entry_name",
+              "line": 1574
+            },
+            {
+              "file": "libarchive/archive_write_set_format_pax.c",
+              "function": "build_ustar_entry_name",
+              "line": 1626
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-20",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-4424"
+      ],
+      "applications": [
+        "libarchive / bsdtar"
+      ],
+      "versions": {
+        "vulnerable": "commit e480b80eb4ae2fe7efab63216080ef6a43dc1c9b",
+        "fixed": "commit e1907c5832b6489c7b4198b0825f857c93a03c10"
+      },
+      "directory": "benchmark/scenarios/SP-20",
+      "log_path": "data/logs/SP-20.sysdig",
+      "source_root": "data/sources/SP-20/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "libarchive/archive_read_support_format_rar.c",
+              "function": "parse_codes",
+              "line": 2551
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-21",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-15028"
+      ],
+      "applications": [
+        "libarchive / bsdtar"
+      ],
+      "versions": {
+        "vulnerable": "commit 42b2444920ecb1d6a08fbe9c4e1d89dc05384db8",
+        "fixed": "commit f93abd161ec37326c566f4f0efcd44fe7a66dd95"
+      },
+      "directory": "benchmark/scenarios/SP-21",
+      "log_path": "data/logs/SP-21.sysdig",
+      "source_root": "data/sources/SP-21/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "libarchive/archive_read_support_format_tar.c",
+              "function": "tar_atol_base_n",
+              "line": 3520
+            },
+            {
+              "file": "libarchive/archive_read_support_format_tar.c",
+              "function": "tar_atol_base_n",
+              "line": 3528
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-22",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-64031"
+      ],
+      "applications": [
+        "libarchive / bsdtar gzip writer"
+      ],
+      "versions": {
+        "vulnerable": "commit 589659ed7fe15cee514dda3dea81f4053de5a3f3",
+        "fixed": "commit 638464b477ac130ca0f50cde3bbdcfd59026f0e1"
+      },
+      "directory": "benchmark/scenarios/SP-22",
+      "log_path": "data/logs/SP-22.sysdig",
+      "source_root": "data/sources/SP-22/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "confirmed_ineligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-23",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-17591"
+      ],
+      "applications": [
+        "libarchive / metadata API"
+      ],
+      "versions": {
+        "vulnerable": "commit 33da30bd9c111b897b558e73c4c3f498c680350d",
+        "fixed": "commit a8bff736413a42613f4738db9ebde75b4779ab59"
+      },
+      "directory": "benchmark/scenarios/SP-23",
+      "log_path": "data/logs/SP-23.sysdig",
+      "source_root": "data/sources/SP-23/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "libarchive/archive_entry.c",
+              "function": "archive_entry_copy_mac_metadata",
+              "line": 1565
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "confirmed_eligible",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-24",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-64506"
+      ],
+      "applications": [
+        "libpng"
+      ],
+      "versions": {
+        "vulnerable": "1.6.50",
+        "fixed": "1.6.51"
+      },
+      "directory": "benchmark/scenarios/SP-24",
+      "log_path": "data/logs/SP-24.sysdig",
+      "source_root": "data/sources/SP-24/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "pngwrite.c",
+              "function": "png_image_write_main",
+              "line": 2176
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-25",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-64720"
+      ],
+      "applications": [
+        "libpng"
+      ],
+      "versions": {
+        "vulnerable": "1.6.50",
+        "fixed": "1.6.51"
+      },
+      "directory": "benchmark/scenarios/SP-25",
+      "log_path": "data/logs/SP-25.sysdig",
+      "source_root": "data/sources/SP-25/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "pngrtran.c",
+              "function": "png_init_read_transformations",
+              "line": 1786
+            },
+            {
+              "file": "pngrtran.c",
+              "function": "png_init_read_transformations",
+              "line": 1790
+            },
+            {
+              "file": "pngrtran.c",
+              "function": "png_init_read_transformations",
+              "line": 1794
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-26",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-65018"
+      ],
+      "applications": [
+        "libpng"
+      ],
+      "versions": {
+        "vulnerable": "1.6.50",
+        "fixed": "1.6.51"
+      },
+      "directory": "benchmark/scenarios/SP-26",
+      "log_path": "data/logs/SP-26.sysdig",
+      "source_root": "data/sources/SP-26/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-27",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-66293"
+      ],
+      "applications": [
+        "libpng"
+      ],
+      "versions": {
+        "vulnerable": "1.6.51",
+        "fixed": "1.6.52"
+      },
+      "directory": "benchmark/scenarios/SP-27",
+      "log_path": "data/logs/SP-27.sysdig",
+      "source_root": "data/sources/SP-27/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-28",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-22695"
+      ],
+      "applications": [
+        "libpng"
+      ],
+      "versions": {
+        "vulnerable": "1.6.53",
+        "fixed": "1.6.54"
+      },
+      "directory": "benchmark/scenarios/SP-28",
+      "log_path": "data/logs/SP-28.sysdig",
+      "source_root": "data/sources/SP-28/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "pngread.c",
+              "function": "png_image_read_direct_scaled",
+              "line": 3173
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-29",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-8176"
+      ],
+      "applications": [
+        "LibTIFF"
+      ],
+      "versions": {
+        "vulnerable": "source ref 0b80e677a2014eafe4b1adaac232bc11e8150e18",
+        "fixed": "fix commit fe10872e53efba9cc36c66ac4ab3b41a839d5172"
+      },
+      "directory": "benchmark/scenarios/SP-29",
+      "log_path": "data/logs/SP-29.sysdig",
+      "source_root": "data/sources/SP-29/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "tools/tiffmedian.c",
+              "function": "get_histogram",
+              "line": 416
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-30",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-8534"
+      ],
+      "applications": [
+        "LibTIFF"
+      ],
+      "versions": {
+        "vulnerable": "source ref e92f761ea4c7ff89ca3280fb8d7d2dac38d35cf0",
+        "fixed": "fix commit 6ba36f159fd396ad11bf6b7874554197736ecc8b"
+      },
+      "directory": "benchmark/scenarios/SP-30",
+      "log_path": "data/logs/SP-30.sysdig",
+      "source_root": "data/sources/SP-30/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-31",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-61144"
+      ],
+      "applications": [
+        "LibTIFF"
+      ],
+      "versions": {
+        "vulnerable": "4.7.1 source snapshot",
+        "fixed": "fix commit 88cf9db..."
+      },
+      "directory": "benchmark/scenarios/SP-31",
+      "log_path": "data/logs/SP-31.sysdig",
+      "source_root": "data/sources/SP-31/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "tools/tiffcrop.c",
+              "function": "combineSeparateSamplesBytes",
+              "line": 4398
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-32",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-61145"
+      ],
+      "applications": [
+        "LibTIFF"
+      ],
+      "versions": {
+        "vulnerable": "4.7.1 source snapshot",
+        "fixed": "MR #753 merge 0729574..."
+      },
+      "directory": "benchmark/scenarios/SP-32",
+      "log_path": "data/logs/SP-32.sysdig",
+      "source_root": "data/sources/SP-32/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "tools/tiffcrop.c",
+              "function": "main (failure cleanup)",
+              "line": 2927
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-33",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-49795"
+      ],
+      "applications": [
+        "libxml2"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent c340e419505cf4bf1d9ed7019a87cc00ec200434",
+        "fixed": "fix-commit c24909ba2601848825b49a60f988222da3019667"
+      },
+      "directory": "benchmark/scenarios/SP-33",
+      "log_path": "data/logs/SP-33.sysdig",
+      "source_root": "data/sources/SP-33/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-34",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-6170"
+      ],
+      "applications": [
+        "libxml2"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 03af724f0821ae8c0fb819c71bfbf95fe9822c9e",
+        "fixed": "fix-commit c340e419505cf4bf1d9ed7019a87cc00ec200434"
+      },
+      "directory": "benchmark/scenarios/SP-34",
+      "log_path": "data/logs/SP-34.sysdig",
+      "source_root": "data/sources/SP-34/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-35",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-49794"
+      ],
+      "applications": [
+        "libxml2"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 24d7e15914588cb45e7fb41cbe4fcf785e1a4861",
+        "fixed": "fix-commit 71e1e8af5ee46dad1b57bb96cfbf1c3ad21fbd7b"
+      },
+      "directory": "benchmark/scenarios/SP-35",
+      "log_path": "data/logs/SP-35.sysdig",
+      "source_root": "data/sources/SP-35/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "schematron.c",
+              "function": "xmlSchematronGetNode",
+              "line": 1386
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-36",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-86137"
+      ],
+      "applications": [
+        "libxml2"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent c94eb0210183b9d7cb43f8e7fddc6be55843ef49",
+        "fixed": "fix-commit 76fe08d97de88bfaef2f7d5cd27f11954cc5bee2"
+      },
+      "directory": "benchmark/scenarios/SP-36",
+      "log_path": "data/logs/SP-36.sysdig",
+      "source_root": "data/sources/SP-36/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-37",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-11731"
+      ],
+      "applications": [
+        "libxslt"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 841a1805a9a9aa959b4eb9c46ba56a84e17cf871",
+        "fixed": "fix-commit fe508f201efb9ea37bfbe95413b8b28251497de3"
+      },
+      "directory": "benchmark/scenarios/SP-37",
+      "log_path": "data/logs/SP-37.sysdig",
+      "source_root": "data/sources/SP-37/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "libexslt/functions.c",
+              "function": "exsltFuncResultComp",
+              "line": 620
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-38",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-46206"
+      ],
+      "applications": [
+        "MuPDF"
+      ],
+      "versions": {
+        "vulnerable": "1.25.5",
+        "fixed": "fix commit 0ec7e4d..."
+      },
+      "directory": "benchmark/scenarios/SP-38",
+      "log_path": "data/logs/SP-38.sysdig",
+      "source_root": "data/sources/SP-38/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-39",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-55780"
+      ],
+      "applications": [
+        "MuPDF"
+      ],
+      "versions": {
+        "vulnerable": "1.26.4",
+        "fixed": "fix commit bdd5d241..."
+      },
+      "directory": "benchmark/scenarios/SP-39",
+      "log_path": "data/logs/SP-39.sysdig",
+      "source_root": "data/sources/SP-39/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "source/html/html-layout.c",
+              "function": "break_word_for_overflow_wrap",
+              "line": 635
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-40",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-3308"
+      ],
+      "applications": [
+        "MuPDF"
+      ],
+      "versions": {
+        "vulnerable": "source ref fc8ff4e1b62f001717b339a81c1753ad30374bea",
+        "fixed": "fix commit a26f0142e7d390d4a82c6e5ae0e312e07cc4ec85"
+      },
+      "directory": "benchmark/scenarios/SP-40",
+      "log_path": "data/logs/SP-40.sysdig",
+      "source_root": "data/sources/SP-40/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "source/fitz/draw-unpack.c",
+              "function": "fz_unpack_stream",
+              "line": 440
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-41",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-71382"
+      ],
+      "applications": [
+        "MuPDF"
+      ],
+      "versions": {
+        "vulnerable": "source ref 16dab7067754182637035559bbf486b52e667f97",
+        "fixed": "fix commit 70b71ab22e6de4d4c44cd301c88231f623a4e94e"
+      },
+      "directory": "benchmark/scenarios/SP-41",
+      "log_path": "data/logs/SP-41.sysdig",
+      "source_root": "data/sources/SP-41/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-42",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-92413"
+      ],
+      "applications": [
+        "MuPDF"
+      ],
+      "versions": {
+        "vulnerable": "source ref b6d17493700c621c0e70036980a6ebd06d2202c9",
+        "fixed": "fix commit 3df1e30f9d7b77260e13bd0dbe1928ddeba8386e"
+      },
+      "directory": "benchmark/scenarios/SP-42",
+      "log_path": "data/logs/SP-42.sysdig",
+      "source_root": "data/sources/SP-42/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "source/pdf/pdf-stream.c",
+              "function": "pdf_open_filter",
+              "line": 413
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-43",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-48071"
+      ],
+      "applications": [
+        "OpenEXR"
+      ],
+      "versions": {
+        "vulnerable": "3.3.2",
+        "fixed": "3.3.3"
+      },
+      "directory": "benchmark/scenarios/SP-43",
+      "log_path": "data/logs/SP-43.sysdig",
+      "source_root": "data/sources/SP-43/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "src/lib/OpenEXRCore/internal_zip.c",
+              "function": "undo_zip_impl",
+              "line": 301
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C/C++"
+      }
+    },
+    {
+      "id": "SP-44",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-48072"
+      ],
+      "applications": [
+        "OpenEXR"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 501be087 (exact source revision)",
+        "fixed": "fix commit 2d094494"
+      },
+      "directory": "benchmark/scenarios/SP-44",
+      "log_path": "data/logs/SP-44.sysdig",
+      "source_root": "data/sources/SP-44/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "src/lib/OpenEXRCore/internal_dwa_decoder.h",
+              "function": "LossyDctDecoder_execute",
+              "line": 652
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C/C++"
+      }
+    },
+    {
+      "id": "SP-45",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-26981"
+      ],
+      "applications": [
+        "OpenEXR"
+      ],
+      "versions": {
+        "vulnerable": "3.4.4",
+        "fixed": "3.4.5 / 3.3.7"
+      },
+      "directory": "benchmark/scenarios/SP-45",
+      "log_path": "data/logs/SP-45.sysdig",
+      "source_root": "data/sources/SP-45/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "src/lib/OpenEXR/ImfContextInit.cpp",
+              "function": "istream_nonparallel_read",
+              "line": 123
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C/C++"
+      }
+    },
+    {
+      "id": "SP-46",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-6192"
+      ],
+      "applications": [
+        "OpenJPEG"
+      ],
+      "versions": {
+        "vulnerable": "source ref 1ad9bec2c12ee445ce23e660f5e4fe870b9d5e09",
+        "fixed": "fix commit 839936aa33eb8899bbbd80fda02796bb65068951"
+      },
+      "directory": "benchmark/scenarios/SP-46",
+      "log_path": "data/logs/SP-46.sysdig",
+      "source_root": "data/sources/SP-46/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-47",
+      "group": "single_program",
+      "cves": [
+        "CVE-2025-58050"
+      ],
+      "applications": [
+        "pcre2"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 882b4247134c7ac6d2a4ebd18b3520413ae71c18",
+        "fixed": "fix-commit a141712e5967d448c7ce13090ab530c8e3d82254"
+      },
+      "directory": "benchmark/scenarios/SP-47",
+      "log_path": "data/logs/SP-47.sysdig",
+      "source_root": "data/sources/SP-47/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-48",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-119372"
+      ],
+      "applications": [
+        "sqlite3"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 0085ea144363b4df8c9a37afbc67a82071b40f0b",
+        "fixed": "fix-commit a87bd2471a9c0606e78d3c3678bcd9cecaa0e731"
+      },
+      "directory": "benchmark/scenarios/SP-48",
+      "log_path": "data/logs/SP-48.sysdig",
+      "source_root": "data/sources/SP-48/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-49",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-119373"
+      ],
+      "applications": [
+        "sqlite3"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 17cf702308ed07c91a34de15fb07720d49ca5008",
+        "fixed": "fix-commit e1c9934f9f11a499029abb020ea715a08970da80"
+      },
+      "directory": "benchmark/scenarios/SP-49",
+      "log_path": "data/logs/SP-49.sysdig",
+      "source_root": "data/sources/SP-49/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "ext/fts5/fts5_index.c",
+              "function": "fts5MergeRowidLists",
+              "line": 6108
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-50",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-119374"
+      ],
+      "applications": [
+        "sqlite3"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 4267bbf920ccf352ff3fa813ff2ae513dedea491",
+        "fixed": "fix-commit d9de6eedbe918c074c7556400fa21df5960704d9"
+      },
+      "directory": "benchmark/scenarios/SP-50",
+      "log_path": "data/logs/SP-50.sysdig",
+      "source_root": "data/sources/SP-50/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "ext/fts5/fts5_index.c",
+              "function": "fts5DoSecureDelete",
+              "line": 5520
+            },
+            {
+              "file": "ext/fts5/fts5_index.c",
+              "function": "fts5DoSecureDelete",
+              "line": 5526
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-51",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-119378"
+      ],
+      "applications": [
+        "sqlite3"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 2503dc6182a94a2249eb945ff5982b367cd8f60d",
+        "fixed": "fix-commit d21bd37c7cfc1b85b17a6703555f0926b6236e04"
+      },
+      "directory": "benchmark/scenarios/SP-51",
+      "log_path": "data/logs/SP-51.sysdig",
+      "source_root": "data/sources/SP-51/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": false,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "SP-52",
+      "group": "single_program",
+      "cves": [
+        "CVE-2026-119379"
+      ],
+      "applications": [
+        "sqlite3"
+      ],
+      "versions": {
+        "vulnerable": "fix-parent 58332de7a68934dd592cab1995fb6d3c75541300",
+        "fixed": "fix-commit 64459c87cc702d600704fb77ee40ca1782398a52"
+      },
+      "directory": "benchmark/scenarios/SP-52",
+      "log_path": "data/logs/SP-52.sysdig",
+      "source_root": "data/sources/SP-52/vuln",
+      "symptom": null,
+      "hops": 0,
+      "root_causes": [
+        {
+          "locations": [
+            {
+              "file": "ext/session/sqlite3session.c",
+              "function": "sessionChangesetApply",
+              "line": 5625
+            }
+          ],
+          "obligations": [],
+          "mechanisms": [],
+          "notes": ""
+        }
+      ],
+      "n_l": true,
+      "annotation_status": "pending",
+      "metadata": {
+        "language": "C"
+      }
+    }
+  ]
+}

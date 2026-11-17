@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-01",
+  "status": "confirmed_eligible",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "CPP/7zip/Archive/ComHandler.cpp",
+      "function": "NArchive::NCom::CHandler::GetStream",
+      "line": 851
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "CPP/7zip/Archive/ComHandler.cpp",
+          "function": "NArchive::NCom::CHandler::GetStream",
+          "line": 851
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

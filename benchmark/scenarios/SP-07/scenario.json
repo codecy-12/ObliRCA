@@ -1,0 +1,38 @@
+{
+  "id": "SP-07",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-11414"
+  ],
+  "applications": [
+    "GNU binutils / ld"
+  ],
+  "versions": {
+    "vulnerable": "commit 1108620d7a521f1c85d2f629031ce0fbae14e331",
+    "fixed": "commit aeaaa9af6359c8e394ce9cf24911fec4f4d23703"
+  },
+  "directory": "benchmark/scenarios/SP-07",
+  "log_path": "data/logs/SP-07.sysdig",
+  "source_root": "data/sources/SP-07/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "bfd/elflink.c",
+          "function": "set_symbol_value",
+          "line": 9181
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

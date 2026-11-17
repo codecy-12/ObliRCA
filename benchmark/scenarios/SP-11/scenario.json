@@ -1,0 +1,38 @@
+{
+  "id": "SP-11",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-7546"
+  ],
+  "applications": [
+    "GNU binutils / objcopy"
+  ],
+  "versions": {
+    "vulnerable": "commit a66ed82cf04ed4527882af57e2bffec065ed47e0",
+    "fixed": "commit 41461010eb7c79fee7a9d5f6209accdaac66cc6b"
+  },
+  "directory": "benchmark/scenarios/SP-11",
+  "log_path": "data/logs/SP-11.sysdig",
+  "source_root": "data/sources/SP-11/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "bfd/elf.c",
+          "function": "bfd_elf_set_group_contents",
+          "line": 3977
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

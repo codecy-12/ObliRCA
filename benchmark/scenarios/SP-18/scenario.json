@@ -1,0 +1,32 @@
+{
+  "id": "SP-18",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-5915"
+  ],
+  "applications": [
+    "libarchive / bsdtar"
+  ],
+  "versions": {
+    "vulnerable": "commit 09685126fcec664e2b8ca595e1fc371bd494d209",
+    "fixed": "commit 60e2ecfcdbbfa261cfbc6950c9b4c89bab46c5bf"
+  },
+  "directory": "benchmark/scenarios/SP-18",
+  "log_path": "data/logs/SP-18.sysdig",
+  "source_root": "data/sources/SP-18/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "confirmed_ineligible",
+  "metadata": {
+    "language": "C"
+  }
+}

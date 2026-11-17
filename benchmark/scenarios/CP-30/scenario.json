@@ -1,0 +1,18 @@
+{
+  "id": "CP-30",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2025-61984"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-30",
+  "log_path": "data/logs/CP-30.sysdig",
+  "source_root": "data/sources/CP-30/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

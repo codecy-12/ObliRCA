@@ -1,0 +1,38 @@
+{
+  "id": "SP-40",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-3308"
+  ],
+  "applications": [
+    "MuPDF"
+  ],
+  "versions": {
+    "vulnerable": "source ref fc8ff4e1b62f001717b339a81c1753ad30374bea",
+    "fixed": "fix commit a26f0142e7d390d4a82c6e5ae0e312e07cc4ec85"
+  },
+  "directory": "benchmark/scenarios/SP-40",
+  "log_path": "data/logs/SP-40.sysdig",
+  "source_root": "data/sources/SP-40/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "source/fitz/draw-unpack.c",
+          "function": "fz_unpack_stream",
+          "line": 440
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "SP-19",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-5917"
+  ],
+  "applications": [
+    "libarchive / bsdtar"
+  ],
+  "versions": {
+    "vulnerable": "commit be8d08868c9bd9ebc2e27eeb7c3df74e4749bb91",
+    "fixed": "commit 14f8dca480161a118360955f8958e1dda05a6aba"
+  },
+  "directory": "benchmark/scenarios/SP-19",
+  "log_path": "data/logs/SP-19.sysdig",
+  "source_root": "data/sources/SP-19/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "libarchive/archive_write_set_format_pax.c",
+          "function": "build_ustar_entry_name",
+          "line": 1574
+        },
+        {
+          "file": "libarchive/archive_write_set_format_pax.c",
+          "function": "build_ustar_entry_name",
+          "line": 1626
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

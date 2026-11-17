@@ -1,0 +1,32 @@
+{
+  "id": "SP-22",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-64031"
+  ],
+  "applications": [
+    "libarchive / bsdtar gzip writer"
+  ],
+  "versions": {
+    "vulnerable": "commit 589659ed7fe15cee514dda3dea81f4053de5a3f3",
+    "fixed": "commit 638464b477ac130ca0f50cde3bbdcfd59026f0e1"
+  },
+  "directory": "benchmark/scenarios/SP-22",
+  "log_path": "data/logs/SP-22.sysdig",
+  "source_root": "data/sources/SP-22/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "confirmed_ineligible",
+  "metadata": {
+    "language": "C"
+  }
+}

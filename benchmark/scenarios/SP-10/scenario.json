@@ -1,0 +1,32 @@
+{
+  "id": "SP-10",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-7545"
+  ],
+  "applications": [
+    "GNU binutils / objcopy"
+  ],
+  "versions": {
+    "vulnerable": "commit 41461010eb7c79fee7a9d5f6209accdaac66cc6b",
+    "fixed": "commit 08c3cbe5926e4d355b5cb70bbec2b1eeb40c2944"
+  },
+  "directory": "benchmark/scenarios/SP-10",
+  "log_path": "data/logs/SP-10.sysdig",
+  "source_root": "data/sources/SP-10/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "confirmed_ineligible",
+  "metadata": {
+    "language": "C"
+  }
+}

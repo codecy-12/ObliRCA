@@ -1,0 +1,18 @@
+{
+  "id": "CH-09",
+  "group": "multiple_root",
+  "cves": [
+    "CVE-2026-33478"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CH-09",
+  "log_path": "data/logs/CH-09.sysdig",
+  "source_root": "data/sources/CH-09/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "confirmed_missing_guard",
+  "metadata": {}
+}

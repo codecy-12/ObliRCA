@@ -1,0 +1,32 @@
+{
+  "id": "SP-03",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-5244"
+  ],
+  "applications": [
+    "GNU binutils / ld"
+  ],
+  "versions": {
+    "vulnerable": "commit 6fe4e5bd10b996428a557e036c07c5839a8e0a49",
+    "fixed": "commit d1458933830456e54223d9fc61f0d9b3a19256f5"
+  },
+  "directory": "benchmark/scenarios/SP-03",
+  "log_path": "data/logs/SP-03.sysdig",
+  "source_root": "data/sources/SP-03/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "confirmed_ineligible",
+  "metadata": {
+    "language": "C"
+  }
+}

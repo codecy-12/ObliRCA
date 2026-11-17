@@ -1,0 +1,38 @@
+{
+  "id": "SP-15",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-49014"
+  ],
+  "applications": [
+    "jq"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent edbc1da8093f55f8e7e68f29e93abcf2e19c5aa0",
+    "fixed": "fix-commit 499c91bca9d4d027833bc62787d1bb075c03680e"
+  },
+  "directory": "benchmark/scenarios/SP-15",
+  "log_path": "data/logs/SP-15.sysdig",
+  "source_root": "data/sources/SP-15/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "src/builtin.c",
+          "function": "f_strflocaltime",
+          "line": 1821
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

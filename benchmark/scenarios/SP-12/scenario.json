@@ -1,0 +1,38 @@
+{
+  "id": "SP-12",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-5245"
+  ],
+  "applications": [
+    "GNU binutils / objdump"
+  ],
+  "versions": {
+    "vulnerable": "commit 7bc46c997839cbcb02f987f4cbf776b7a3bcc6f8",
+    "fixed": "commit 6c3458a8b7ee7d39f070c7b2350851cb2110c65a"
+  },
+  "directory": "benchmark/scenarios/SP-12",
+  "log_path": "data/logs/SP-12.sysdig",
+  "source_root": "data/sources/SP-12/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "binutils/debug.c",
+          "function": "debug_type_samep",
+          "line": 3100
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

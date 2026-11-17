@@ -1,0 +1,38 @@
+{
+  "id": "SP-52",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-119379"
+  ],
+  "applications": [
+    "sqlite3"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent 58332de7a68934dd592cab1995fb6d3c75541300",
+    "fixed": "fix-commit 64459c87cc702d600704fb77ee40ca1782398a52"
+  },
+  "directory": "benchmark/scenarios/SP-52",
+  "log_path": "data/logs/SP-52.sysdig",
+  "source_root": "data/sources/SP-52/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "ext/session/sqlite3session.c",
+          "function": "sessionChangesetApply",
+          "line": 5625
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

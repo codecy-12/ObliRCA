@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-43",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "src/lib/OpenEXRCore/internal_zip.c",
+      "function": "undo_zip_impl",
+      "line": 301
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "src/lib/OpenEXRCore/internal_zip.c",
+          "function": "undo_zip_impl",
+          "line": 301
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

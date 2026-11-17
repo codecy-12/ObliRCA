@@ -1,0 +1,32 @@
+{
+  "id": "SP-30",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-8534"
+  ],
+  "applications": [
+    "LibTIFF"
+  ],
+  "versions": {
+    "vulnerable": "source ref e92f761ea4c7ff89ca3280fb8d7d2dac38d35cf0",
+    "fixed": "fix commit 6ba36f159fd396ad11bf6b7874554197736ecc8b"
+  },
+  "directory": "benchmark/scenarios/SP-30",
+  "log_path": "data/logs/SP-30.sysdig",
+  "source_root": "data/sources/SP-30/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

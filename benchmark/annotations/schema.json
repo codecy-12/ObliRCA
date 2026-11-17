@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ObliRCA scenario annotation",
+  "type": "object",
+  "required": ["scenario_id", "status", "locations"],
+  "properties": {
+    "scenario_id": {"type": "string"},
+    "status": {"enum": ["confirmed", "pending", "excluded"]},
+    "n_l": {"type": "boolean"},
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "function", "line"],
+        "properties": {
+          "file": {"type": "string"},
+          "function": {"type": "string"},
+          "line": {"type": "integer", "minimum": 0},
+          "kind": {"enum": ["erroneous_statement", "missing_check_region"]},
+          "obligation_id": {"type": "string"},
+          "evidence": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "locations": {"type": "array", "items": {"type": "string"}},
+          "obligations": {"type": "array", "items": {"type": "string"}},
+          "mechanism": {"type": "string"}
+        }
+      }
+    },
+    "notes": {"type": "string"}
+  }
+}

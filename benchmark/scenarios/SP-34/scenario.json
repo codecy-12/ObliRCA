@@ -1,0 +1,32 @@
+{
+  "id": "SP-34",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-6170"
+  ],
+  "applications": [
+    "libxml2"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent 03af724f0821ae8c0fb819c71bfbf95fe9822c9e",
+    "fixed": "fix-commit c340e419505cf4bf1d9ed7019a87cc00ec200434"
+  },
+  "directory": "benchmark/scenarios/SP-34",
+  "log_path": "data/logs/SP-34.sysdig",
+  "source_root": "data/sources/SP-34/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

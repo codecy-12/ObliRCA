@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-15",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "src/builtin.c",
+      "function": "f_strflocaltime",
+      "line": 1821
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "src/builtin.c",
+          "function": "f_strflocaltime",
+          "line": 1821
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

@@ -1,0 +1,37 @@
+{
+  "scenario_id": "SP-21",
+  "status": "confirmed_eligible",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "libarchive/archive_read_support_format_tar.c",
+      "function": "tar_atol_base_n",
+      "line": 3520
+    },
+    {
+      "file": "libarchive/archive_read_support_format_tar.c",
+      "function": "tar_atol_base_n",
+      "line": 3528
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "libarchive/archive_read_support_format_tar.c",
+          "function": "tar_atol_base_n",
+          "line": 3520
+        },
+        {
+          "file": "libarchive/archive_read_support_format_tar.c",
+          "function": "tar_atol_base_n",
+          "line": 3528
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

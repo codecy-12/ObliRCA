@@ -1,0 +1,255 @@
+id: OBL-PATH-001
+category: Path Constraints
+category_id: 1
+version: 1.0.0
+summary: A path derived from an untrusted source must resolve within the intended
+  root and denote the intended object.
+roles:
+  source:
+    name: untrusted_path
+    description: untrusted path or path component
+    kind: object
+  value:
+    name: path_representation
+    description: normalized or encoded path representation
+    kind: value
+  target:
+    name: filesystem_target
+    description: file or directory reached by the path
+    kind: object
+  policy:
+    name: root_boundary
+    description: root, mount, or namespace boundary
+    kind: object
+  aux:
+    name: resolver
+    description: resolution or canonicalization routine
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+- id: G7
+  description: boundary-crossing organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: boundary
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: crosses
+    description: ''
+  - src: n2
+    dst: n3
+    relation: delivers
+    description: ''
+conditions:
+  pre:
+  - a path or path component from an untrusted source is about to be resolved or used
+  must:
+  - the resolved path remains within the intended root and denotes the intended object
+  stage:
+  - before the target is opened, read, written, or executed
+  scope:
+  - until the operation completes; recheck after symlink, mount, or root changes
+query_manual:
+- id: Q1
+  what: Where is the path canonicalized or normalized?
+  where: trace definitions, joins, and resolver calls before the target
+  interpret: a canonical form computed under the intended root answers the question
+  next: continue to the target if the root is established
+- id: Q2
+  what: Which root or boundary governs the target?
+  where: trace the root, mount, and namespace values into the operation
+  interpret: a root check that dominates the target answers the question
+  next: record a gap if the target can leave the root
+- id: Q3
+  what: Can a symlink or parent component change the resolution?
+  where: inspect link following, parent traversal, and time-of-check windows
+  interpret: a post-resolution containment check answers the question
+  next: continue if containment is checked after resolution
+- id: Q4
+  what: Is an encoded or alternate representation decoded later?
+  where: follow decoders, joins, and alternate separators
+  interpret: a second normalization after decoding is required
+  next: recheck containment after the last decode
+- id: Q5
+  what: Does the check survive a rename, mount, or namespace change?
+  where: inspect updates to the root and object identity
+  interpret: a stable object identity or recheck answers the question
+  next: record a gap if the check is stale
+provenance:
+  category_id: 1
+  graph_count: 7
+  source_cases: 128
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

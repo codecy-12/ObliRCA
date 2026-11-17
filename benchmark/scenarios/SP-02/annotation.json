@@ -1,0 +1,37 @@
+{
+  "scenario_id": "SP-02",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "expat/lib/xmlparse.c",
+      "function": "doProlog",
+      "line": 5921
+    },
+    {
+      "file": "expat/lib/xmlparse.c",
+      "function": "doProlog",
+      "line": 5946
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "expat/lib/xmlparse.c",
+          "function": "doProlog",
+          "line": 5921
+        },
+        {
+          "file": "expat/lib/xmlparse.c",
+          "function": "doProlog",
+          "line": 5946
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

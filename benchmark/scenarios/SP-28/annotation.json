@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-28",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "pngread.c",
+      "function": "png_image_read_direct_scaled",
+      "line": 3173
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "pngread.c",
+          "function": "png_image_read_direct_scaled",
+          "line": 3173
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

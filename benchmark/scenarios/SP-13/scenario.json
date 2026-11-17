@@ -1,0 +1,38 @@
+{
+  "id": "SP-13",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-11081"
+  ],
+  "applications": [
+    "GNU binutils / objdump"
+  ],
+  "versions": {
+    "vulnerable": "commit 3ac272c1f115da7bfbb872bf7ad9aa72f42e0c01",
+    "fixed": "commit f87a66db645caf8cc0e6fc87b0c28c78a38af59b"
+  },
+  "directory": "benchmark/scenarios/SP-13",
+  "log_path": "data/logs/SP-13.sysdig",
+  "source_root": "data/sources/SP-13/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "binutils/objdump.c",
+          "function": "dump_dwarf_section",
+          "line": 4488
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

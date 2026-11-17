@@ -1,0 +1,18 @@
+{
+  "id": "CP-09",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-28753"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-09",
+  "log_path": "data/logs/CP-09.sysdig",
+  "source_root": "data/sources/CP-09/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "confirmed_missing_guard",
+  "metadata": {}
+}

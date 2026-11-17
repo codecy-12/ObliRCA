@@ -1,0 +1,18 @@
+{
+  "id": "CP-29",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-6429"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-29",
+  "log_path": "data/logs/CP-29.sysdig",
+  "source_root": "data/sources/CP-29/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

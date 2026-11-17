@@ -1,0 +1,38 @@
+{
+  "id": "SP-24",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-64506"
+  ],
+  "applications": [
+    "libpng"
+  ],
+  "versions": {
+    "vulnerable": "1.6.50",
+    "fixed": "1.6.51"
+  },
+  "directory": "benchmark/scenarios/SP-24",
+  "log_path": "data/logs/SP-24.sysdig",
+  "source_root": "data/sources/SP-24/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "pngwrite.c",
+          "function": "png_image_write_main",
+          "line": 2176
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

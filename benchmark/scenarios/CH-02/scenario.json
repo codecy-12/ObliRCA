@@ -1,0 +1,19 @@
+{
+  "id": "CH-02",
+  "group": "multiple_root",
+  "cves": [
+    "CVE-2025-6018",
+    "CVE-2025-6019"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CH-02",
+  "log_path": "data/logs/CH-02.sysdig",
+  "source_root": "data/sources/CH-02/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "confirmed_missing_guard",
+  "metadata": {}
+}

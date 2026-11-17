@@ -1,0 +1,20 @@
+# ObliRCA benchmark scaffold: SP-43
+# The incident-version source tree is not vendored.  Mount or copy it into
+# ./sources and adapt the Dockerfile before running.
+services:
+  target:
+    build: .
+    container_name: obli-${SCENARIO_ID:-scenario}-target
+    working_dir: /src
+    command: ["/bin/bash", "-lc", "sleep infinity"]
+
+  capture:
+    image: sysdig/sysdig:latest
+    container_name: obli-${SCENARIO_ID:-scenario}-capture
+    privileged: true
+    pid: host
+    volumes:
+      - /var/run/docker.sock:/host/var/run/docker.sock
+      - ./captures:/captures
+    command: ["sleep", "infinity"]
+    profiles: ["capture"]

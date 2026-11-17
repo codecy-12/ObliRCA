@@ -1,0 +1,8 @@
+{
+  "scenario_id": "CP-01",
+  "status": "pending",
+  "n_l": false,
+  "locations": [],
+  "roots": [],
+  "notes": "Example record. Replace with the per-scenario annotation; do not infer missing values."
+}

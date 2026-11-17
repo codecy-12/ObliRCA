@@ -1,0 +1,232 @@
+id: OBL-DEFAULT-001
+category: Secure Defaults
+category_id: 7
+version: 1.0.0
+summary: The effective configuration must be deny-by-default and consistent with the
+  deployment policy when an option is absent or inherited.
+roles:
+  source:
+    name: configuration
+    description: configuration source or inheritance chain
+    kind: object
+  value:
+    name: option
+    description: security-relevant option or flag
+    kind: value
+  target:
+    name: effective_policy
+    description: effective policy or protected operation
+    kind: object
+  policy:
+    name: deployment_policy
+    description: deployment security policy
+    kind: object
+  aux:
+    name: merge
+    description: merge or precedence routine
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+conditions:
+  pre:
+  - a security-relevant option is absent, inherited, or left at its default
+  must:
+  - the effective configuration is deny-by-default and consistent with the deployment
+    policy
+  stage:
+  - before the option is applied to the protected operation
+  scope:
+  - until the configuration is reloaded; recheck after inheritance, merge, or override
+query_manual:
+- id: Q1
+  what: What is the default value and who applies it?
+  where: trace the option definition and default assignment
+  interpret: a deny-by-default value answers the question
+  next: continue if the default is secure
+- id: Q2
+  what: Which precedence order applies?
+  where: inspect merge and override rules
+  interpret: an order that preserves the secure value answers the question
+  next: record a gap if an override silently weakens it
+- id: Q3
+  what: Can inheritance introduce an unsafe value?
+  where: trace parent, tenant, or profile inheritance
+  interpret: an inheritance check that rejects unsafe values answers the question
+  next: continue if inherited values are validated
+- id: Q4
+  what: Is the option applied to the actual deployment context?
+  where: compare the option with the runtime context
+  interpret: a context-aware check answers the question
+  next: record a gap if the option is applied blindly
+- id: Q5
+  what: Does a reload restore the secure value?
+  where: inspect reload and rollback paths
+  interpret: a reload that revalidates the policy answers the question
+  next: continue if the reload is safe
+provenance:
+  category_id: 7
+  graph_count: 6
+  source_cases: 47
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

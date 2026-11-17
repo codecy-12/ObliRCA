@@ -1,0 +1,19 @@
+{
+  "id": "CH-01",
+  "group": "multiple_root",
+  "cves": [
+    "CVE-2026-34980",
+    "CVE-2026-34990"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CH-01",
+  "log_path": "data/logs/CH-01.sysdig",
+  "source_root": "data/sources/CH-01/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

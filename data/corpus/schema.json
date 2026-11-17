@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "required": [
+    "case_id",
+    "category",
+    "category_id",
+    "split"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "category_id": {
+      "type": "integer"
+    },
+    "is_cross_application": {
+      "type": "boolean"
+    },
+    "split": {
+      "type": "string"
+    },
+    "library_version": {
+      "type": "string"
+    },
+    "identity_status": {
+      "type": "string"
+    },
+    "metadata_status": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}

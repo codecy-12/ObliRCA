@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-20",
+  "status": "confirmed_eligible",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "libarchive/archive_read_support_format_rar.c",
+      "function": "parse_codes",
+      "line": 2551
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "libarchive/archive_read_support_format_rar.c",
+          "function": "parse_codes",
+          "line": 2551
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

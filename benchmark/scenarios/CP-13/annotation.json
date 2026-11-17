@@ -1,0 +1,8 @@
+{
+  "scenario_id": "CP-13",
+  "status": "confirmed_missing_guard",
+  "n_l": false,
+  "locations": [],
+  "roots": [],
+  "notes": "Source-review annotation; captured logs are external."
+}

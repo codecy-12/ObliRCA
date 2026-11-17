@@ -1,0 +1,256 @@
+id: OBL-CONC-001
+category: Concurrency Ordering
+category_id: 8
+version: 1.0.0
+summary: A read-modify-write sequence on shared state must be atomic with respect
+  to all conflicting accesses.
+roles:
+  source:
+    name: actor
+    description: thread, process, or request actor
+    kind: object
+  value:
+    name: shared_state
+    description: shared variable, object, or queue
+    kind: object
+  target:
+    name: operation
+    description: read-modify-write or check-then-act sequence
+    kind: object
+  policy:
+    name: lock
+    description: lock, atomic primitive, or ordering rule
+    kind: object
+  aux:
+    name: observer
+    description: competing accessor or observer
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+- id: G7
+  description: boundary-crossing organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: boundary
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: crosses
+    description: ''
+  - src: n2
+    dst: n3
+    relation: delivers
+    description: ''
+conditions:
+  pre:
+  - two or more actors can access shared state concurrently
+  must:
+  - the read-modify-write sequence is atomic with respect to all conflicting accesses
+  stage:
+  - before the first access in the critical sequence
+  scope:
+  - until the sequence commits; recheck after lock release, retry, or reentrancy
+query_manual:
+- id: Q1
+  what: Which accesses conflict with the sequence?
+  where: enumerate readers, writers, and callbacks on the shared state
+  interpret: a lock or atomic primitive that covers all conflicting accesses answers
+    the question
+  next: continue if the critical section is complete
+- id: Q2
+  what: Is the check and the use in the same critical section?
+  where: trace the check, the use, and the lock boundaries
+  interpret: a check that remains valid until the use answers the question
+  next: record a gap if the check can be invalidated
+- id: Q3
+  what: Can a retry or callback reenter the sequence?
+  where: inspect reentrancy and deferred work
+  interpret: a reentrancy-safe primitive answers the question
+  next: continue if reentrancy is excluded
+- id: Q4
+  what: Is the ordering visible to all actors?
+  where: inspect memory barriers and publication
+  interpret: a barrier or atomic publication answers the question
+  next: record a gap if publication is unordered
+- id: Q5
+  what: Does an error path release the lock correctly?
+  where: inspect unwind, timeout, and cancellation
+  interpret: a release that matches every acquisition answers the question
+  next: continue if the error path is safe
+provenance:
+  category_id: 8
+  graph_count: 7
+  source_cases: 55
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

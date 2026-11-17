@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-35",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "schematron.c",
+      "function": "xmlSchematronGetNode",
+      "line": 1386
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "schematron.c",
+          "function": "xmlSchematronGetNode",
+          "line": 1386
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

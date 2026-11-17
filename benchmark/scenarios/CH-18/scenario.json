@@ -1,0 +1,18 @@
+{
+  "id": "CH-18",
+  "group": "multiple_root",
+  "cves": [
+    "CVE-2026-28268"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CH-18",
+  "log_path": "data/logs/CH-18.sysdig",
+  "source_root": "data/sources/CH-18/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

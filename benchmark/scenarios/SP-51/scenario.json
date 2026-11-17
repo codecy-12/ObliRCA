@@ -1,0 +1,32 @@
+{
+  "id": "SP-51",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-119378"
+  ],
+  "applications": [
+    "sqlite3"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent 2503dc6182a94a2249eb945ff5982b367cd8f60d",
+    "fixed": "fix-commit d21bd37c7cfc1b85b17a6703555f0926b6236e04"
+  },
+  "directory": "benchmark/scenarios/SP-51",
+  "log_path": "data/logs/SP-51.sysdig",
+  "source_root": "data/sources/SP-51/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

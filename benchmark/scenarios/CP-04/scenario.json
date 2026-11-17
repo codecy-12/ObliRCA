@@ -1,0 +1,18 @@
+{
+  "id": "CP-04",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-63045"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-04",
+  "log_path": "data/logs/CP-04.sysdig",
+  "source_root": "data/sources/CP-04/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "confirmed_missing_guard",
+  "metadata": {}
+}

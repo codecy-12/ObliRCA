@@ -1,0 +1,21 @@
+{
+  "total": 1323,
+  "cross_application": 142,
+  "by_category": {
+    "Path Constraints": 128,
+    "Authorization Checks": 181,
+    "Resource Bounds": 139,
+    "Protocol State Constraints": 91,
+    "Memory Bounds": 332,
+    "Input Sanitization": 237,
+    "Secure Defaults": 47,
+    "Concurrency Ordering": 55,
+    "Resource Lifecycles": 41,
+    "Object Lifecycles": 72
+  },
+  "identity_status": "opaque",
+  "frontier": {
+    "library_version": "1.0.0",
+    "frozen_before_evaluation": true
+  }
+}

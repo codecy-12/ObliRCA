@@ -1,0 +1,18 @@
+{
+  "id": "CH-08",
+  "group": "multiple_root",
+  "cves": [
+    "CVE-2026-28792"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CH-08",
+  "log_path": "data/logs/CH-08.sysdig",
+  "source_root": "data/sources/CH-08/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

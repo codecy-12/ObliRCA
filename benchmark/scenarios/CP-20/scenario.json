@@ -1,0 +1,18 @@
+{
+  "id": "CP-20",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-110133"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-20",
+  "log_path": "data/logs/CP-20.sysdig",
+  "source_root": "data/sources/CP-20/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "insufficient_evidence",
+  "metadata": {}
+}

@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "frozen_at": "2026-11-17",
+  "entry_count": 10,
+  "graph_count": 78,
+  "source_case_count": 1323,
+  "files": [
+    {
+      "file": "01_path_constraints.yaml",
+      "sha256": "5167f670023d947e9943438be5db3c7bc1a3fad95fa8bb7fba9a5c7ff096f836"
+    },
+    {
+      "file": "02_authorization_checks.yaml",
+      "sha256": "b0253c84284293c5ac0d354ebf84379359898c694a0dbb01920ceda19ccad8af"
+    },
+    {
+      "file": "03_resource_bounds.yaml",
+      "sha256": "ba2c562bf6f22199e36093c8243ebde812ec73fa03dbe51afb531748d1256771"
+    },
+    {
+      "file": "04_protocol_state_constraints.yaml",
+      "sha256": "07bd7c2a1360439b00259a360929d420117554888da7a42f787accc11e1f2e8e"
+    },
+    {
+      "file": "05_memory_bounds.yaml",
+      "sha256": "879efbd0107becc107d79686791da3ae311f557be72e7e88cecfd25a639bde04"
+    },
+    {
+      "file": "06_input_sanitization.yaml",
+      "sha256": "052a3ffe4c3111a14c3b485766ad22380cce587495cfdf6e73e4e5d351747269"
+    },
+    {
+      "file": "07_secure_defaults.yaml",
+      "sha256": "190da411bcb08f1927007e676504e3623672f8e4e3533373b8f1fdd24f04f72d"
+    },
+    {
+      "file": "08_concurrency_ordering.yaml",
+      "sha256": "8f1d5e1dcaa36f05ab162b2eb8fc0048378c0258d1be4a752d5df9bc9454042c"
+    },
+    {
+      "file": "09_resource_lifecycles.yaml",
+      "sha256": "5dcfe77e4cdd13dbd806683100b70d3e3c282dedcd3b04054147f02aaf65f24a"
+    },
+    {
+      "file": "10_object_lifecycles.yaml",
+      "sha256": "aec03a5c6cc11bf6d82942b194bb703330dae8005fda85e3a094eccd8028b87d"
+    }
+  ]
+}

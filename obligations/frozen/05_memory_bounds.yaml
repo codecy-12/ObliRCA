@@ -1,0 +1,312 @@
+id: OBL-MEM-001
+category: Memory Bounds
+category_id: 5
+version: 1.0.0
+summary: The accessed range must lie within the allocated or valid range of the same
+  object before a memory operation.
+roles:
+  source:
+    name: external_data
+    description: externally influenced data or index
+    kind: object
+  value:
+    name: length
+    description: length, offset, count, or index
+    kind: value
+  target:
+    name: buffer
+    description: buffer, allocation, or valid range
+    kind: object
+  policy:
+    name: valid_range
+    description: allocation size or valid range
+    kind: value
+  aux:
+    name: operation
+    description: read, write, copy, or index operation
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+- id: G7
+  description: boundary-crossing organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: boundary
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: crosses
+    description: ''
+  - src: n2
+    dst: n3
+    relation: delivers
+    description: ''
+- id: G8
+  description: state-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: state
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: updates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: enables
+    description: ''
+- id: G9
+  description: multi-source organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n3
+    relation: influences
+    description: ''
+  - src: n2
+    dst: n3
+    relation: influences
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+conditions:
+  pre:
+  - a read, write, copy, or index operation uses an externally influenced length or
+    offset
+  must:
+  - the accessed range lies within the allocated or valid range of the same object
+  stage:
+  - before the memory operation
+  scope:
+  - until the operation completes; recheck after reallocation, length update, or aliasing
+query_manual:
+- id: Q1
+  what: Where does the length or offset come from?
+  where: trace the value from its source into the operation
+  interpret: a value derived from a checked range answers the question
+  next: continue if the origin is established
+- id: Q2
+  what: What is the valid range of the target?
+  where: trace allocation, capacity, and updates
+  interpret: a capacity that dominates the operation answers the question
+  next: record a gap if the capacity is stale or unknown
+- id: Q3
+  what: Can the length arithmetic overflow or wrap?
+  where: inspect additions, multiplications, and casts before the check
+  interpret: an overflow-safe check answers the question
+  next: continue if the arithmetic is bounded
+- id: Q4
+  what: Does the check use the same object and representation?
+  where: compare the checked object with the operated object
+  interpret: a check on the same object and representation answers the question
+  next: record a gap if the check is on a copy or alias
+- id: Q5
+  what: Can the range change after the check?
+  where: inspect reallocation, concurrent updates, and callbacks
+  interpret: a stable range or recheck answers the question
+  next: continue if the range is protected
+provenance:
+  category_id: 5
+  graph_count: 9
+  source_cases: 332
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

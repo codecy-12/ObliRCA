@@ -1,0 +1,279 @@
+id: OBL-RES-001
+category: Resource Bounds
+category_id: 3
+version: 1.0.0
+summary: The requested amount plus current consumption must remain within the configured
+  bound for a shared resource.
+roles:
+  source:
+    name: requester
+    description: request or principal that consumes the resource
+    kind: object
+  value:
+    name: amount
+    description: requested amount, rate, or count
+    kind: value
+  target:
+    name: resource
+    description: bounded resource or admission point
+    kind: object
+  policy:
+    name: quota_policy
+    description: configured bound or quota
+    kind: object
+  aux:
+    name: accounting
+    description: accounting or admission routine
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+- id: G7
+  description: boundary-crossing organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: boundary
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: crosses
+    description: ''
+  - src: n2
+    dst: n3
+    relation: delivers
+    description: ''
+- id: G8
+  description: state-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: state
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: updates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: enables
+    description: ''
+conditions:
+  pre:
+  - a request can consume a shared or bounded resource
+  must:
+  - the requested amount plus current consumption stays within the configured bound
+  stage:
+  - before allocation, enqueue, or admission
+  scope:
+  - until the resource is released or the request completes
+query_manual:
+- id: Q1
+  what: Where is the bound configured?
+  where: trace the quota or limit from configuration to the admission point
+  interpret: a bound that is read by the admission check answers the question
+  next: continue if the bound is established
+- id: Q2
+  what: Is current consumption accounted for atomically?
+  where: inspect counters, reservations, and concurrent updates
+  interpret: an atomic reservation answers the question
+  next: record a gap if the check races with consumption
+- id: Q3
+  what: Can the request exceed the bound after a retry or split?
+  where: trace retries, batches, and decomposition
+  interpret: accounting that covers all parts answers the question
+  next: continue if the whole request is accounted
+- id: Q4
+  what: Is the resource released on every error path?
+  where: inspect rollback, cleanup, and exception paths
+  interpret: a release that matches every acquisition answers the question
+  next: record a gap if an error path leaks the reservation
+- id: Q5
+  what: Does the bound reset or expire correctly?
+  where: inspect timers, windows, and reset logic
+  interpret: a reset that preserves the invariant answers the question
+  next: continue if the window is well defined
+provenance:
+  category_id: 3
+  graph_count: 8
+  source_cases: 139
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

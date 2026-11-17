@@ -1,0 +1,18 @@
+{
+  "id": "CP-01",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2025-58098"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-01",
+  "log_path": "data/logs/CP-01.sysdig",
+  "source_root": "data/sources/CP-01/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "confirmed_missing_guard",
+  "metadata": {}
+}

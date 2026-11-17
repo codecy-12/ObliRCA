@@ -1,0 +1,18 @@
+{
+  "id": "CP-08",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-1642"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-08",
+  "log_path": "data/logs/CP-08.sysdig",
+  "source_root": "data/sources/CP-08/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

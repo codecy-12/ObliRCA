@@ -1,0 +1,170 @@
+id: OBL-AUTH-001
+category: Authorization Checks
+category_id: 2
+version: 1.0.0
+summary: The authenticated subject and its granted scope must cover the requested
+  action on the actual target.
+roles:
+  source:
+    name: subject
+    description: authenticated subject or client identity
+    kind: object
+  value:
+    name: credential
+    description: authentication result or granted scope
+    kind: value
+  target:
+    name: action
+    description: requested operation and target object
+    kind: object
+  policy:
+    name: policy_context
+    description: policy, host, or tenant context
+    kind: object
+  aux:
+    name: policy_engine
+    description: authorization or policy evaluation routine
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+conditions:
+  pre:
+  - a request reaches a protected operation
+  must:
+  - the authenticated subject and its granted scope cover the requested action on
+    the actual target
+  stage:
+  - before the protected operation is performed
+  scope:
+  - until the operation completes; recheck after identity, host, tenant, or policy
+    changes
+query_manual:
+- id: Q1
+  what: Where does the authentication result originate?
+  where: trace the credential verification and the value it produces
+  interpret: a result that is bound to the actual subject and context answers the
+    question
+  next: continue if the result is available
+- id: Q2
+  what: Is the subject bound to the requested action and target?
+  where: trace subject, action, and target into the policy decision
+  interpret: a decision that uses all three answers the question
+  next: record a gap if one is substituted or omitted
+- id: Q3
+  what: Does the policy apply to the actual host or tenant?
+  where: compare the policy context with the runtime context
+  interpret: a consistency check before the decision answers the question
+  next: continue if the contexts are checked
+- id: Q4
+  what: Can the policy version change between check and use?
+  where: inspect reloads, caches, and deferred decisions
+  interpret: a stable snapshot or recheck answers the question
+  next: record a gap if the decision is stale
+- id: Q5
+  what: Is an upstream check sufficient for this target?
+  where: trace callers and wrappers into the protected operation
+  interpret: a dominating upstream check with the same context answers the question
+  next: reassess sufficiency if only a partial check exists
+provenance:
+  category_id: 2
+  graph_count: 4
+  source_cases: 181
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

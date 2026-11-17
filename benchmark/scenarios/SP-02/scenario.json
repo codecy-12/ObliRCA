@@ -1,0 +1,43 @@
+{
+  "id": "SP-02",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-56132"
+  ],
+  "applications": [
+    "expat"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent a18aceeb340b1975f3338af8e088490f0d4d6c19",
+    "fixed": "fix-commit 08baa7ef9d168b99094249998fd78f8d190526e5"
+  },
+  "directory": "benchmark/scenarios/SP-02",
+  "log_path": "data/logs/SP-02.sysdig",
+  "source_root": "data/sources/SP-02/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "expat/lib/xmlparse.c",
+          "function": "doProlog",
+          "line": 5921
+        },
+        {
+          "file": "expat/lib/xmlparse.c",
+          "function": "doProlog",
+          "line": 5946
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

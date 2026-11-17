@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-37",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "libexslt/functions.c",
+      "function": "exsltFuncResultComp",
+      "line": 620
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "libexslt/functions.c",
+          "function": "exsltFuncResultComp",
+          "line": 620
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

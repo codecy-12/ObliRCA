@@ -1,0 +1,21 @@
+{
+  "id": "TEST-01",
+  "group": "cross_program",
+  "cves": ["CVE-TEST-0001"],
+  "applications": ["nginx", "haproxy"],
+  "versions": {"nginx": "1.26.3", "haproxy": "3.0.0"},
+  "directory": "tests/fixtures",
+  "log_path": "tests/fixtures/logs/nginx.sysdig",
+  "source_root": "tests/fixtures/source",
+  "symptom": {
+    "event_id": "e5",
+    "application": "nginx",
+    "description": "protected report read from a downstream request",
+    "timestamp": "14:22:08.100210000"
+  },
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "test-fixture",
+  "metadata": {}
+}

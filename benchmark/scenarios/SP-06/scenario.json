@@ -1,0 +1,32 @@
+{
+  "id": "SP-06",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-11412"
+  ],
+  "applications": [
+    "GNU binutils / ld"
+  ],
+  "versions": {
+    "vulnerable": "commit 4fab244ece36dc7e30f3900102a6f061daeb47e4",
+    "fixed": "commit 047435dd988a3975d40c6626a8f739a0b2e154bc"
+  },
+  "directory": "benchmark/scenarios/SP-06",
+  "log_path": "data/logs/SP-06.sysdig",
+  "source_root": "data/sources/SP-06/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "confirmed_ineligible",
+  "metadata": {
+    "language": "C"
+  }
+}

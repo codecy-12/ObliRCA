@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-12",
+  "status": "confirmed_eligible",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "binutils/debug.c",
+      "function": "debug_type_samep",
+      "line": 3100
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "binutils/debug.c",
+          "function": "debug_type_samep",
+          "line": 3100
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

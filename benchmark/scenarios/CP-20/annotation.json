@@ -1,0 +1,8 @@
+{
+  "scenario_id": "CP-20",
+  "status": "insufficient_evidence",
+  "n_l": false,
+  "locations": [],
+  "roots": [],
+  "notes": "Source-review annotation; captured logs are external."
+}

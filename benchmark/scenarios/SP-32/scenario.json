@@ -1,0 +1,38 @@
+{
+  "id": "SP-32",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-61145"
+  ],
+  "applications": [
+    "LibTIFF"
+  ],
+  "versions": {
+    "vulnerable": "4.7.1 source snapshot",
+    "fixed": "MR #753 merge 0729574..."
+  },
+  "directory": "benchmark/scenarios/SP-32",
+  "log_path": "data/logs/SP-32.sysdig",
+  "source_root": "data/sources/SP-32/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "tools/tiffcrop.c",
+          "function": "main (failure cleanup)",
+          "line": 2927
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

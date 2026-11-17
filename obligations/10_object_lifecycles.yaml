@@ -1,0 +1,257 @@
+id: OBL-OLIFE-001
+category: Object Lifecycles
+category_id: 10
+version: 1.0.0
+summary: An object must remain valid for every use and be destroyed only when no references
+  remain.
+roles:
+  source:
+    name: object
+    description: object whose lifetime is managed
+    kind: object
+  value:
+    name: reference
+    description: reference, pointer, or handle
+    kind: value
+  target:
+    name: operation
+    description: use or destruction operation
+    kind: object
+  policy:
+    name: state
+    description: initialized, alive, or destroyed state
+    kind: value
+  aux:
+    name: owner
+    description: owner or reference-count manager
+    kind: object
+graphs:
+- id: G1
+  description: direct value-to-target organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: provides
+    description: ''
+  - src: n2
+    dst: n3
+    relation: constrains
+    description: ''
+- id: G2
+  description: wrapper-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: function
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: enters
+    description: ''
+  - src: n2
+    dst: n3
+    relation: invokes
+    description: ''
+- id: G3
+  description: container-mediated organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: populates
+    description: ''
+  - src: n2
+    dst: n3
+    relation: reaches
+    description: ''
+- id: G4
+  description: alias/reference organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: object
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: aliases
+    description: ''
+  - src: n2
+    dst: n3
+    relation: is_used_by
+    description: ''
+- id: G5
+  description: split source and value organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: value
+    kind: value
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  - id: n4
+    role: policy
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: supplies
+    description: ''
+  - src: n2
+    dst: n3
+    relation: bounds
+    description: ''
+  - src: n4
+    dst: n3
+    relation: governs
+    description: ''
+- id: G6
+  description: policy-governed organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: target
+    kind: object
+    description: ''
+  - id: n3
+    role: policy
+    kind: object
+    description: ''
+  - id: n4
+    role: value
+    kind: value
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: requests
+    description: ''
+  - src: n3
+    dst: n2
+    relation: governs
+    description: ''
+  - src: n4
+    dst: n2
+    relation: parameterizes
+    description: ''
+- id: G7
+  description: boundary-crossing organization
+  nodes:
+  - id: n1
+    role: source
+    kind: object
+    description: ''
+  - id: n2
+    role: aux
+    kind: boundary
+    description: ''
+  - id: n3
+    role: target
+    kind: object
+    description: ''
+  edges:
+  - src: n1
+    dst: n2
+    relation: crosses
+    description: ''
+  - src: n2
+    dst: n3
+    relation: delivers
+    description: ''
+conditions:
+  pre:
+  - an object is created, referenced, or destroyed
+  must:
+  - the object remains valid for every use and is destroyed only when no references
+    remain
+  stage:
+  - before each use and before destruction
+  scope:
+  - until the last reference is released; recheck after reentrancy, callback, or error
+query_manual:
+- id: Q1
+  what: Where is the object initialized?
+  where: trace allocation and initialization
+  interpret: a fully initialized object before publication answers the question
+  next: continue if initialization is complete
+- id: Q2
+  what: Who holds references and for how long?
+  where: trace references, aliases, and ownership
+  interpret: a reference count or ownership rule that covers every use answers the
+    question
+  next: record a gap if a reference can outlive the object
+- id: Q3
+  what: Can a callback or reentrant path use the object after destruction?
+  where: inspect callbacks, deferred work, and error paths
+  interpret: a lifetime guard that covers the callback answers the question
+  next: continue if the callback is safe
+- id: Q4
+  what: Is destruction ordered after the last use?
+  where: inspect destruction and publication order
+  interpret: a last-use-before-destroy order answers the question
+  next: record a gap if destruction can precede a use
+- id: Q5
+  what: Is a failed initialization cleaned up?
+  where: inspect partial initialization and rollback
+  interpret: a cleanup that matches every partial state answers the question
+  next: continue if rollback is complete
+provenance:
+  category_id: 10
+  graph_count: 7
+  source_cases: 72
+  accepted_round: 1
+  revision_count: 0
+  created_from: offline-flywheel
+  notes: abstract entry; no historical identifiers

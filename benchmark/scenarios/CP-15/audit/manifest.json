@@ -1,0 +1,7 @@
+{
+  "scenario_id": "CP-15",
+  "status": "not_captured",
+  "format": "sysdig",
+  "expected_path": "data/logs/CP-15.sysdig",
+  "note": "Capture the incident-version syscall log and place it at the expected path."
+}

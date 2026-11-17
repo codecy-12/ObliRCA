@@ -1,0 +1,32 @@
+{
+  "id": "SP-46",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-6192"
+  ],
+  "applications": [
+    "OpenJPEG"
+  ],
+  "versions": {
+    "vulnerable": "source ref 1ad9bec2c12ee445ce23e660f5e4fe870b9d5e09",
+    "fixed": "fix commit 839936aa33eb8899bbbd80fda02796bb65068951"
+  },
+  "directory": "benchmark/scenarios/SP-46",
+  "log_path": "data/logs/SP-46.sysdig",
+  "source_root": "data/sources/SP-46/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

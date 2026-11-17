@@ -1,0 +1,18 @@
+{
+  "id": "CH-04",
+  "group": "multiple_root",
+  "cves": [
+    "CVE-2025-54782"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CH-04",
+  "log_path": "data/logs/CH-04.sysdig",
+  "source_root": "data/sources/CH-04/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

@@ -1,0 +1,18 @@
+{
+  "id": "CP-10",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-42926"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-10",
+  "log_path": "data/logs/CP-10.sysdig",
+  "source_root": "data/sources/CP-10/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

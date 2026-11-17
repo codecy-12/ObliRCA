@@ -1,0 +1,18 @@
+{
+  "id": "CP-26",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2025-48384"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-26",
+  "log_path": "data/logs/CP-26.sysdig",
+  "source_root": "data/sources/CP-26/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

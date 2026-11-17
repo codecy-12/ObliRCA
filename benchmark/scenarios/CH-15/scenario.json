@@ -1,0 +1,18 @@
+{
+  "id": "CH-15",
+  "group": "multiple_root",
+  "cves": [
+    "CVE-2026-67426"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CH-15",
+  "log_path": "data/logs/CH-15.sysdig",
+  "source_root": "data/sources/CH-15/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "confirmed_missing_guard",
+  "metadata": {}
+}

@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-29",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "tools/tiffmedian.c",
+      "function": "get_histogram",
+      "line": 416
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "tools/tiffmedian.c",
+          "function": "get_histogram",
+          "line": 416
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

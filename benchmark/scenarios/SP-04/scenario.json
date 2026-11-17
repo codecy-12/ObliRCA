@@ -1,0 +1,38 @@
+{
+  "id": "SP-04",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-11082"
+  ],
+  "applications": [
+    "GNU binutils / ld"
+  ],
+  "versions": {
+    "vulnerable": "commit 58f22c76b29088c69eb6f272da7f20fdc5a80c50",
+    "fixed": "commit ea1a0737c7692737a644af0486b71e4a392cbca8"
+  },
+  "directory": "benchmark/scenarios/SP-04",
+  "log_path": "data/logs/SP-04.sysdig",
+  "source_root": "data/sources/SP-04/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "bfd/elf-eh-frame.c",
+          "function": "_bfd_elf_parse_eh_frame",
+          "line": 756
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

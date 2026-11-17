@@ -1,0 +1,38 @@
+{
+  "id": "SP-43",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-48071"
+  ],
+  "applications": [
+    "OpenEXR"
+  ],
+  "versions": {
+    "vulnerable": "3.3.2",
+    "fixed": "3.3.3"
+  },
+  "directory": "benchmark/scenarios/SP-43",
+  "log_path": "data/logs/SP-43.sysdig",
+  "source_root": "data/sources/SP-43/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "src/lib/OpenEXRCore/internal_zip.c",
+          "function": "undo_zip_impl",
+          "line": 301
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C/C++"
+  }
+}

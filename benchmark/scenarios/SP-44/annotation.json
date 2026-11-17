@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-44",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "src/lib/OpenEXRCore/internal_dwa_decoder.h",
+      "function": "LossyDctDecoder_execute",
+      "line": 652
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "src/lib/OpenEXRCore/internal_dwa_decoder.h",
+          "function": "LossyDctDecoder_execute",
+          "line": 652
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

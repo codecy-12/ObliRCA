@@ -1,0 +1,38 @@
+{
+  "id": "SP-29",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-8176"
+  ],
+  "applications": [
+    "LibTIFF"
+  ],
+  "versions": {
+    "vulnerable": "source ref 0b80e677a2014eafe4b1adaac232bc11e8150e18",
+    "fixed": "fix commit fe10872e53efba9cc36c66ac4ab3b41a839d5172"
+  },
+  "directory": "benchmark/scenarios/SP-29",
+  "log_path": "data/logs/SP-29.sysdig",
+  "source_root": "data/sources/SP-29/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "tools/tiffmedian.c",
+          "function": "get_histogram",
+          "line": 416
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

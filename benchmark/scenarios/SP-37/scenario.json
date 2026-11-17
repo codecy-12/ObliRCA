@@ -1,0 +1,38 @@
+{
+  "id": "SP-37",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-11731"
+  ],
+  "applications": [
+    "libxslt"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent 841a1805a9a9aa959b4eb9c46ba56a84e17cf871",
+    "fixed": "fix-commit fe508f201efb9ea37bfbe95413b8b28251497de3"
+  },
+  "directory": "benchmark/scenarios/SP-37",
+  "log_path": "data/logs/SP-37.sysdig",
+  "source_root": "data/sources/SP-37/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "libexslt/functions.c",
+          "function": "exsltFuncResultComp",
+          "line": 620
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "SP-36",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-86137"
+  ],
+  "applications": [
+    "libxml2"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent c94eb0210183b9d7cb43f8e7fddc6be55843ef49",
+    "fixed": "fix-commit 76fe08d97de88bfaef2f7d5cd27f11954cc5bee2"
+  },
+  "directory": "benchmark/scenarios/SP-36",
+  "log_path": "data/logs/SP-36.sysdig",
+  "source_root": "data/sources/SP-36/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

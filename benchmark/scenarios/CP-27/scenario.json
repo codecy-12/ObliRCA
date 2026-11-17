@@ -1,0 +1,18 @@
+{
+  "id": "CP-27",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2025-55188"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-27",
+  "log_path": "data/logs/CP-27.sysdig",
+  "source_root": "data/sources/CP-27/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}

@@ -1,0 +1,4226 @@
+[
+  {
+    "id": "OBL-PATH-001",
+    "category": "Path Constraints",
+    "category_id": 1,
+    "version": "1.0.0",
+    "summary": "A path derived from an untrusted source must resolve within the intended root and denote the intended object.",
+    "roles": {
+      "source": {
+        "name": "untrusted_path",
+        "description": "untrusted path or path component",
+        "kind": "object"
+      },
+      "value": {
+        "name": "path_representation",
+        "description": "normalized or encoded path representation",
+        "kind": "value"
+      },
+      "target": {
+        "name": "filesystem_target",
+        "description": "file or directory reached by the path",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "root_boundary",
+        "description": "root, mount, or namespace boundary",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "resolver",
+        "description": "resolution or canonicalization routine",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "a path or path component from an untrusted source is about to be resolved or used"
+      ],
+      "must": [
+        "the resolved path remains within the intended root and denotes the intended object"
+      ],
+      "stage": [
+        "before the target is opened, read, written, or executed"
+      ],
+      "scope": [
+        "until the operation completes; recheck after symlink, mount, or root changes"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Where is the path canonicalized or normalized?",
+        "where": "trace definitions, joins, and resolver calls before the target",
+        "interpret": "a canonical form computed under the intended root answers the question",
+        "next": "continue to the target if the root is established"
+      },
+      {
+        "id": "Q2",
+        "what": "Which root or boundary governs the target?",
+        "where": "trace the root, mount, and namespace values into the operation",
+        "interpret": "a root check that dominates the target answers the question",
+        "next": "record a gap if the target can leave the root"
+      },
+      {
+        "id": "Q3",
+        "what": "Can a symlink or parent component change the resolution?",
+        "where": "inspect link following, parent traversal, and time-of-check windows",
+        "interpret": "a post-resolution containment check answers the question",
+        "next": "continue if containment is checked after resolution"
+      },
+      {
+        "id": "Q4",
+        "what": "Is an encoded or alternate representation decoded later?",
+        "where": "follow decoders, joins, and alternate separators",
+        "interpret": "a second normalization after decoding is required",
+        "next": "recheck containment after the last decode"
+      },
+      {
+        "id": "Q5",
+        "what": "Does the check survive a rename, mount, or namespace change?",
+        "where": "inspect updates to the root and object identity",
+        "interpret": "a stable object identity or recheck answers the question",
+        "next": "record a gap if the check is stale"
+      }
+    ],
+    "provenance": {
+      "category_id": 1,
+      "graph_count": 7,
+      "source_cases": 128,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-AUTH-001",
+    "category": "Authorization Checks",
+    "category_id": 2,
+    "version": "1.0.0",
+    "summary": "The authenticated subject and its granted scope must cover the requested action on the actual target.",
+    "roles": {
+      "source": {
+        "name": "subject",
+        "description": "authenticated subject or client identity",
+        "kind": "object"
+      },
+      "value": {
+        "name": "credential",
+        "description": "authentication result or granted scope",
+        "kind": "value"
+      },
+      "target": {
+        "name": "action",
+        "description": "requested operation and target object",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "policy_context",
+        "description": "policy, host, or tenant context",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "policy_engine",
+        "description": "authorization or policy evaluation routine",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "a request reaches a protected operation"
+      ],
+      "must": [
+        "the authenticated subject and its granted scope cover the requested action on the actual target"
+      ],
+      "stage": [
+        "before the protected operation is performed"
+      ],
+      "scope": [
+        "until the operation completes; recheck after identity, host, tenant, or policy changes"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Where does the authentication result originate?",
+        "where": "trace the credential verification and the value it produces",
+        "interpret": "a result that is bound to the actual subject and context answers the question",
+        "next": "continue if the result is available"
+      },
+      {
+        "id": "Q2",
+        "what": "Is the subject bound to the requested action and target?",
+        "where": "trace subject, action, and target into the policy decision",
+        "interpret": "a decision that uses all three answers the question",
+        "next": "record a gap if one is substituted or omitted"
+      },
+      {
+        "id": "Q3",
+        "what": "Does the policy apply to the actual host or tenant?",
+        "where": "compare the policy context with the runtime context",
+        "interpret": "a consistency check before the decision answers the question",
+        "next": "continue if the contexts are checked"
+      },
+      {
+        "id": "Q4",
+        "what": "Can the policy version change between check and use?",
+        "where": "inspect reloads, caches, and deferred decisions",
+        "interpret": "a stable snapshot or recheck answers the question",
+        "next": "record a gap if the decision is stale"
+      },
+      {
+        "id": "Q5",
+        "what": "Is an upstream check sufficient for this target?",
+        "where": "trace callers and wrappers into the protected operation",
+        "interpret": "a dominating upstream check with the same context answers the question",
+        "next": "reassess sufficiency if only a partial check exists"
+      }
+    ],
+    "provenance": {
+      "category_id": 2,
+      "graph_count": 4,
+      "source_cases": 181,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-RES-001",
+    "category": "Resource Bounds",
+    "category_id": 3,
+    "version": "1.0.0",
+    "summary": "The requested amount plus current consumption must remain within the configured bound for a shared resource.",
+    "roles": {
+      "source": {
+        "name": "requester",
+        "description": "request or principal that consumes the resource",
+        "kind": "object"
+      },
+      "value": {
+        "name": "amount",
+        "description": "requested amount, rate, or count",
+        "kind": "value"
+      },
+      "target": {
+        "name": "resource",
+        "description": "bounded resource or admission point",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "quota_policy",
+        "description": "configured bound or quota",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "accounting",
+        "description": "accounting or admission routine",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G8",
+        "description": "state-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "state",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "updates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "enables",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "a request can consume a shared or bounded resource"
+      ],
+      "must": [
+        "the requested amount plus current consumption stays within the configured bound"
+      ],
+      "stage": [
+        "before allocation, enqueue, or admission"
+      ],
+      "scope": [
+        "until the resource is released or the request completes"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Where is the bound configured?",
+        "where": "trace the quota or limit from configuration to the admission point",
+        "interpret": "a bound that is read by the admission check answers the question",
+        "next": "continue if the bound is established"
+      },
+      {
+        "id": "Q2",
+        "what": "Is current consumption accounted for atomically?",
+        "where": "inspect counters, reservations, and concurrent updates",
+        "interpret": "an atomic reservation answers the question",
+        "next": "record a gap if the check races with consumption"
+      },
+      {
+        "id": "Q3",
+        "what": "Can the request exceed the bound after a retry or split?",
+        "where": "trace retries, batches, and decomposition",
+        "interpret": "accounting that covers all parts answers the question",
+        "next": "continue if the whole request is accounted"
+      },
+      {
+        "id": "Q4",
+        "what": "Is the resource released on every error path?",
+        "where": "inspect rollback, cleanup, and exception paths",
+        "interpret": "a release that matches every acquisition answers the question",
+        "next": "record a gap if an error path leaks the reservation"
+      },
+      {
+        "id": "Q5",
+        "what": "Does the bound reset or expire correctly?",
+        "where": "inspect timers, windows, and reset logic",
+        "interpret": "a reset that preserves the invariant answers the question",
+        "next": "continue if the window is well defined"
+      }
+    ],
+    "provenance": {
+      "category_id": 3,
+      "graph_count": 8,
+      "source_cases": 139,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-PROTO-001",
+    "category": "Protocol State Constraints",
+    "category_id": 4,
+    "version": "1.0.0",
+    "summary": "A message must be valid for the current protocol state and the negotiated version before it is dispatched.",
+    "roles": {
+      "source": {
+        "name": "peer",
+        "description": "remote peer or session endpoint",
+        "kind": "object"
+      },
+      "value": {
+        "name": "message",
+        "description": "protocol message or frame",
+        "kind": "value"
+      },
+      "target": {
+        "name": "state",
+        "description": "current protocol state or session state",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "expected_state",
+        "description": "expected state, version, or transition rule",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "dispatcher",
+        "description": "parser or state-machine dispatcher",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G8",
+        "description": "state-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "state",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "updates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "enables",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G9",
+        "description": "multi-source organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n3",
+            "relation": "influences",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "influences",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G10",
+        "description": "transformation organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "is_transformed",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_consumed",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G11",
+        "description": "range/offset organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "aux",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "defines",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "offsets",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "limits",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G12",
+        "description": "ownership organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "owner",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "owns",
+            "description": ""
+          },
+          {
+            "src": "n1",
+            "dst": "n3",
+            "relation": "accesses",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "a message is accepted on an existing or new session"
+      ],
+      "must": [
+        "the message is valid for the current protocol state and the negotiated version"
+      ],
+      "stage": [
+        "before the message is dispatched or a state transition is committed"
+      ],
+      "scope": [
+        "until the transition is committed; recheck after retry, resumption, or renegotiation"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Which state transition does this message require?",
+        "where": "trace the state variable and the transition table",
+        "interpret": "a transition guard that covers the message answers the question",
+        "next": "continue if the transition is valid"
+      },
+      {
+        "id": "Q2",
+        "what": "Is the negotiated version part of the check?",
+        "where": "trace version negotiation and feature flags",
+        "interpret": "a check that uses the negotiated version answers the question",
+        "next": "record a gap if a version-dependent feature is unchecked"
+      },
+      {
+        "id": "Q3",
+        "what": "Can a resumed or retried session skip the transition?",
+        "where": "inspect resumption, retry, and replay paths",
+        "interpret": "a resumption path that revalidates state answers the question",
+        "next": "continue if the state is reestablished"
+      },
+      {
+        "id": "Q4",
+        "what": "Can messages arrive out of order?",
+        "where": "inspect queues, demultiplexing, and sequence numbers",
+        "interpret": "an ordering rule that is enforced answers the question",
+        "next": "record a gap if reordering is accepted"
+      },
+      {
+        "id": "Q5",
+        "what": "Does the state update commit before the side effect?",
+        "where": "inspect the order of state write and dispatch",
+        "interpret": "a commit-before-dispatch order answers the question",
+        "next": "continue if the side effect is after the commit"
+      }
+    ],
+    "provenance": {
+      "category_id": 4,
+      "graph_count": 12,
+      "source_cases": 91,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-MEM-001",
+    "category": "Memory Bounds",
+    "category_id": 5,
+    "version": "1.0.0",
+    "summary": "The accessed range must lie within the allocated or valid range of the same object before a memory operation.",
+    "roles": {
+      "source": {
+        "name": "external_data",
+        "description": "externally influenced data or index",
+        "kind": "object"
+      },
+      "value": {
+        "name": "length",
+        "description": "length, offset, count, or index",
+        "kind": "value"
+      },
+      "target": {
+        "name": "buffer",
+        "description": "buffer, allocation, or valid range",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "valid_range",
+        "description": "allocation size or valid range",
+        "kind": "value"
+      },
+      "aux": {
+        "name": "operation",
+        "description": "read, write, copy, or index operation",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G8",
+        "description": "state-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "state",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "updates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "enables",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G9",
+        "description": "multi-source organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n3",
+            "relation": "influences",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "influences",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "a read, write, copy, or index operation uses an externally influenced length or offset"
+      ],
+      "must": [
+        "the accessed range lies within the allocated or valid range of the same object"
+      ],
+      "stage": [
+        "before the memory operation"
+      ],
+      "scope": [
+        "until the operation completes; recheck after reallocation, length update, or aliasing"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Where does the length or offset come from?",
+        "where": "trace the value from its source into the operation",
+        "interpret": "a value derived from a checked range answers the question",
+        "next": "continue if the origin is established"
+      },
+      {
+        "id": "Q2",
+        "what": "What is the valid range of the target?",
+        "where": "trace allocation, capacity, and updates",
+        "interpret": "a capacity that dominates the operation answers the question",
+        "next": "record a gap if the capacity is stale or unknown"
+      },
+      {
+        "id": "Q3",
+        "what": "Can the length arithmetic overflow or wrap?",
+        "where": "inspect additions, multiplications, and casts before the check",
+        "interpret": "an overflow-safe check answers the question",
+        "next": "continue if the arithmetic is bounded"
+      },
+      {
+        "id": "Q4",
+        "what": "Does the check use the same object and representation?",
+        "where": "compare the checked object with the operated object",
+        "interpret": "a check on the same object and representation answers the question",
+        "next": "record a gap if the check is on a copy or alias"
+      },
+      {
+        "id": "Q5",
+        "what": "Can the range change after the check?",
+        "where": "inspect reallocation, concurrent updates, and callbacks",
+        "interpret": "a stable range or recheck answers the question",
+        "next": "continue if the range is protected"
+      }
+    ],
+    "provenance": {
+      "category_id": 5,
+      "graph_count": 9,
+      "source_cases": 332,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-INPUT-001",
+    "category": "Input Sanitization",
+    "category_id": 6,
+    "version": "1.0.0",
+    "summary": "Untrusted input must be normalized and constrained to the expected grammar before it is parsed or interpreted.",
+    "roles": {
+      "source": {
+        "name": "untrusted_input",
+        "description": "raw input from an external source",
+        "kind": "object"
+      },
+      "value": {
+        "name": "encoding",
+        "description": "encoding, escaping, or representation",
+        "kind": "value"
+      },
+      "target": {
+        "name": "parser",
+        "description": "parser, interpreter, or command constructor",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "grammar",
+        "description": "expected grammar, type, or policy",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "sanitizer",
+        "description": "normalization or validation routine",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G8",
+        "description": "state-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "state",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "updates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "enables",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G9",
+        "description": "multi-source organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n3",
+            "relation": "influences",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "influences",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G10",
+        "description": "transformation organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "is_transformed",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_consumed",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "untrusted input is parsed, decoded, or passed to an interpreter"
+      ],
+      "must": [
+        "the input is normalized and constrained to the expected grammar before use"
+      ],
+      "stage": [
+        "before parsing, decoding, or command construction"
+      ],
+      "scope": [
+        "until the value is consumed; recheck after a second decoding or concatenation"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Where is the input decoded or normalized?",
+        "where": "trace decoders, encoders, and transformations",
+        "interpret": "a normalization that matches the expected grammar answers the question",
+        "next": "continue if the representation is stable"
+      },
+      {
+        "id": "Q2",
+        "what": "Does the parser accept metacharacters or alternate syntax?",
+        "where": "inspect the parser grammar and separators",
+        "interpret": "a parser that rejects or escapes them answers the question",
+        "next": "record a gap if the grammar is permissive"
+      },
+      {
+        "id": "Q3",
+        "what": "Can a second decode change the value after validation?",
+        "where": "inspect repeated decoding and concatenation",
+        "interpret": "a validation after the last decode answers the question",
+        "next": "continue if the value is final"
+      },
+      {
+        "id": "Q4",
+        "what": "Is the input checked for type and length?",
+        "where": "trace the type and length into the consumer",
+        "interpret": "a check that covers the consumer's expectation answers the question",
+        "next": "record a gap if the consumer assumes an unchecked type"
+      },
+      {
+        "id": "Q5",
+        "what": "Does the sanitizer preserve the original meaning?",
+        "where": "compare the sanitized and consumed values",
+        "interpret": "a sanitizer that preserves the intended value answers the question",
+        "next": "continue if the value is not corrupted"
+      }
+    ],
+    "provenance": {
+      "category_id": 6,
+      "graph_count": 10,
+      "source_cases": 237,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-DEFAULT-001",
+    "category": "Secure Defaults",
+    "category_id": 7,
+    "version": "1.0.0",
+    "summary": "The effective configuration must be deny-by-default and consistent with the deployment policy when an option is absent or inherited.",
+    "roles": {
+      "source": {
+        "name": "configuration",
+        "description": "configuration source or inheritance chain",
+        "kind": "object"
+      },
+      "value": {
+        "name": "option",
+        "description": "security-relevant option or flag",
+        "kind": "value"
+      },
+      "target": {
+        "name": "effective_policy",
+        "description": "effective policy or protected operation",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "deployment_policy",
+        "description": "deployment security policy",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "merge",
+        "description": "merge or precedence routine",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "a security-relevant option is absent, inherited, or left at its default"
+      ],
+      "must": [
+        "the effective configuration is deny-by-default and consistent with the deployment policy"
+      ],
+      "stage": [
+        "before the option is applied to the protected operation"
+      ],
+      "scope": [
+        "until the configuration is reloaded; recheck after inheritance, merge, or override"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "What is the default value and who applies it?",
+        "where": "trace the option definition and default assignment",
+        "interpret": "a deny-by-default value answers the question",
+        "next": "continue if the default is secure"
+      },
+      {
+        "id": "Q2",
+        "what": "Which precedence order applies?",
+        "where": "inspect merge and override rules",
+        "interpret": "an order that preserves the secure value answers the question",
+        "next": "record a gap if an override silently weakens it"
+      },
+      {
+        "id": "Q3",
+        "what": "Can inheritance introduce an unsafe value?",
+        "where": "trace parent, tenant, or profile inheritance",
+        "interpret": "an inheritance check that rejects unsafe values answers the question",
+        "next": "continue if inherited values are validated"
+      },
+      {
+        "id": "Q4",
+        "what": "Is the option applied to the actual deployment context?",
+        "where": "compare the option with the runtime context",
+        "interpret": "a context-aware check answers the question",
+        "next": "record a gap if the option is applied blindly"
+      },
+      {
+        "id": "Q5",
+        "what": "Does a reload restore the secure value?",
+        "where": "inspect reload and rollback paths",
+        "interpret": "a reload that revalidates the policy answers the question",
+        "next": "continue if the reload is safe"
+      }
+    ],
+    "provenance": {
+      "category_id": 7,
+      "graph_count": 6,
+      "source_cases": 47,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-CONC-001",
+    "category": "Concurrency Ordering",
+    "category_id": 8,
+    "version": "1.0.0",
+    "summary": "A read-modify-write sequence on shared state must be atomic with respect to all conflicting accesses.",
+    "roles": {
+      "source": {
+        "name": "actor",
+        "description": "thread, process, or request actor",
+        "kind": "object"
+      },
+      "value": {
+        "name": "shared_state",
+        "description": "shared variable, object, or queue",
+        "kind": "object"
+      },
+      "target": {
+        "name": "operation",
+        "description": "read-modify-write or check-then-act sequence",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "lock",
+        "description": "lock, atomic primitive, or ordering rule",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "observer",
+        "description": "competing accessor or observer",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "two or more actors can access shared state concurrently"
+      ],
+      "must": [
+        "the read-modify-write sequence is atomic with respect to all conflicting accesses"
+      ],
+      "stage": [
+        "before the first access in the critical sequence"
+      ],
+      "scope": [
+        "until the sequence commits; recheck after lock release, retry, or reentrancy"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Which accesses conflict with the sequence?",
+        "where": "enumerate readers, writers, and callbacks on the shared state",
+        "interpret": "a lock or atomic primitive that covers all conflicting accesses answers the question",
+        "next": "continue if the critical section is complete"
+      },
+      {
+        "id": "Q2",
+        "what": "Is the check and the use in the same critical section?",
+        "where": "trace the check, the use, and the lock boundaries",
+        "interpret": "a check that remains valid until the use answers the question",
+        "next": "record a gap if the check can be invalidated"
+      },
+      {
+        "id": "Q3",
+        "what": "Can a retry or callback reenter the sequence?",
+        "where": "inspect reentrancy and deferred work",
+        "interpret": "a reentrancy-safe primitive answers the question",
+        "next": "continue if reentrancy is excluded"
+      },
+      {
+        "id": "Q4",
+        "what": "Is the ordering visible to all actors?",
+        "where": "inspect memory barriers and publication",
+        "interpret": "a barrier or atomic publication answers the question",
+        "next": "record a gap if publication is unordered"
+      },
+      {
+        "id": "Q5",
+        "what": "Does an error path release the lock correctly?",
+        "where": "inspect unwind, timeout, and cancellation",
+        "interpret": "a release that matches every acquisition answers the question",
+        "next": "continue if the error path is safe"
+      }
+    ],
+    "provenance": {
+      "category_id": 8,
+      "graph_count": 7,
+      "source_cases": 55,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-RLIFE-001",
+    "category": "Resource Lifecycles",
+    "category_id": 9,
+    "version": "1.0.0",
+    "summary": "Every acquired resource must be released exactly once by a valid owner across all paths.",
+    "roles": {
+      "source": {
+        "name": "resource",
+        "description": "file, connection, handle, or memory resource",
+        "kind": "object"
+      },
+      "value": {
+        "name": "handle",
+        "description": "handle or reference used to access the resource",
+        "kind": "value"
+      },
+      "target": {
+        "name": "release",
+        "description": "release or destruction operation",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "owner",
+        "description": "owner or lifetime rule",
+        "kind": "object"
+      },
+      "aux": {
+        "name": "operation",
+        "description": "acquisition, transfer, or use operation",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G8",
+        "description": "state-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "state",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "updates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "enables",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "a resource is acquired, transferred, or released"
+      ],
+      "must": [
+        "every acquired resource is released exactly once by a valid owner"
+      ],
+      "stage": [
+        "before acquisition and at every transfer or error path"
+      ],
+      "scope": [
+        "until the resource is destroyed; recheck after fork, duplication, or exception"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Where is the resource acquired?",
+        "where": "trace acquisition and the resulting handle",
+        "interpret": "a handle with a clear owner answers the question",
+        "next": "continue if ownership is established"
+      },
+      {
+        "id": "Q2",
+        "what": "Who owns the resource after each transfer?",
+        "where": "trace transfers, duplication, and callbacks",
+        "interpret": "a single valid owner at each point answers the question",
+        "next": "record a gap if ownership is ambiguous"
+      },
+      {
+        "id": "Q3",
+        "what": "Is the resource released on every error path?",
+        "where": "inspect unwind, timeout, and cancellation",
+        "interpret": "a release that matches every acquisition answers the question",
+        "next": "continue if all paths release"
+      },
+      {
+        "id": "Q4",
+        "what": "Can the resource be released twice?",
+        "where": "inspect aliases, callbacks, and idempotency",
+        "interpret": "a release that is exactly once answers the question",
+        "next": "record a gap if double release is possible"
+      },
+      {
+        "id": "Q5",
+        "what": "Does the release order respect dependencies?",
+        "where": "inspect nested resources and destruction order",
+        "interpret": "a dependency-safe order answers the question",
+        "next": "continue if the order is safe"
+      }
+    ],
+    "provenance": {
+      "category_id": 9,
+      "graph_count": 8,
+      "source_cases": 41,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  },
+  {
+    "id": "OBL-OLIFE-001",
+    "category": "Object Lifecycles",
+    "category_id": 10,
+    "version": "1.0.0",
+    "summary": "An object must remain valid for every use and be destroyed only when no references remain.",
+    "roles": {
+      "source": {
+        "name": "object",
+        "description": "object whose lifetime is managed",
+        "kind": "object"
+      },
+      "value": {
+        "name": "reference",
+        "description": "reference, pointer, or handle",
+        "kind": "value"
+      },
+      "target": {
+        "name": "operation",
+        "description": "use or destruction operation",
+        "kind": "object"
+      },
+      "policy": {
+        "name": "state",
+        "description": "initialized, alive, or destroyed state",
+        "kind": "value"
+      },
+      "aux": {
+        "name": "owner",
+        "description": "owner or reference-count manager",
+        "kind": "object"
+      }
+    },
+    "graphs": [
+      {
+        "id": "G1",
+        "description": "direct value-to-target organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "provides",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "constrains",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G2",
+        "description": "wrapper-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "function",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "enters",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "invokes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G3",
+        "description": "container-mediated organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "populates",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "reaches",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G4",
+        "description": "alias/reference organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "aliases",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "is_used_by",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G5",
+        "description": "split source and value organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "supplies",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "bounds",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n3",
+            "relation": "governs",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G6",
+        "description": "policy-governed organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "policy",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n4",
+            "role": "value",
+            "kind": "value",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "requests",
+            "description": ""
+          },
+          {
+            "src": "n3",
+            "dst": "n2",
+            "relation": "governs",
+            "description": ""
+          },
+          {
+            "src": "n4",
+            "dst": "n2",
+            "relation": "parameterizes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "G7",
+        "description": "boundary-crossing organization",
+        "nodes": [
+          {
+            "id": "n1",
+            "role": "source",
+            "kind": "object",
+            "description": ""
+          },
+          {
+            "id": "n2",
+            "role": "aux",
+            "kind": "boundary",
+            "description": ""
+          },
+          {
+            "id": "n3",
+            "role": "target",
+            "kind": "object",
+            "description": ""
+          }
+        ],
+        "edges": [
+          {
+            "src": "n1",
+            "dst": "n2",
+            "relation": "crosses",
+            "description": ""
+          },
+          {
+            "src": "n2",
+            "dst": "n3",
+            "relation": "delivers",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "conditions": {
+      "pre": [
+        "an object is created, referenced, or destroyed"
+      ],
+      "must": [
+        "the object remains valid for every use and is destroyed only when no references remain"
+      ],
+      "stage": [
+        "before each use and before destruction"
+      ],
+      "scope": [
+        "until the last reference is released; recheck after reentrancy, callback, or error"
+      ]
+    },
+    "query_manual": [
+      {
+        "id": "Q1",
+        "what": "Where is the object initialized?",
+        "where": "trace allocation and initialization",
+        "interpret": "a fully initialized object before publication answers the question",
+        "next": "continue if initialization is complete"
+      },
+      {
+        "id": "Q2",
+        "what": "Who holds references and for how long?",
+        "where": "trace references, aliases, and ownership",
+        "interpret": "a reference count or ownership rule that covers every use answers the question",
+        "next": "record a gap if a reference can outlive the object"
+      },
+      {
+        "id": "Q3",
+        "what": "Can a callback or reentrant path use the object after destruction?",
+        "where": "inspect callbacks, deferred work, and error paths",
+        "interpret": "a lifetime guard that covers the callback answers the question",
+        "next": "continue if the callback is safe"
+      },
+      {
+        "id": "Q4",
+        "what": "Is destruction ordered after the last use?",
+        "where": "inspect destruction and publication order",
+        "interpret": "a last-use-before-destroy order answers the question",
+        "next": "record a gap if destruction can precede a use"
+      },
+      {
+        "id": "Q5",
+        "what": "Is a failed initialization cleaned up?",
+        "where": "inspect partial initialization and rollback",
+        "interpret": "a cleanup that matches every partial state answers the question",
+        "next": "continue if rollback is complete"
+      }
+    ],
+    "provenance": {
+      "category_id": 10,
+      "graph_count": 7,
+      "source_cases": 72,
+      "accepted_round": 1,
+      "revision_count": 0,
+      "created_from": "offline-flywheel",
+      "notes": "abstract entry; no historical identifiers"
+    }
+  }
+]

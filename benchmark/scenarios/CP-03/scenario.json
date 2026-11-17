@@ -1,0 +1,18 @@
+{
+  "id": "CP-03",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-34356"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-03",
+  "log_path": "data/logs/CP-03.sysdig",
+  "source_root": "data/sources/CP-03/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": false,
+  "annotation_status": "confirmed_missing_guard",
+  "metadata": {}
+}

@@ -1,0 +1,38 @@
+{
+  "id": "SP-49",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-119373"
+  ],
+  "applications": [
+    "sqlite3"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent 17cf702308ed07c91a34de15fb07720d49ca5008",
+    "fixed": "fix-commit e1c9934f9f11a499029abb020ea715a08970da80"
+  },
+  "directory": "benchmark/scenarios/SP-49",
+  "log_path": "data/logs/SP-49.sysdig",
+  "source_root": "data/sources/SP-49/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "ext/fts5/fts5_index.c",
+          "function": "fts5MergeRowidLists",
+          "line": 6108
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

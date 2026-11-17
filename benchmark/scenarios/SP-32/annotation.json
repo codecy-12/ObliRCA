@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SP-32",
+  "status": "pending",
+  "n_l": true,
+  "locations": [
+    {
+      "file": "tools/tiffcrop.c",
+      "function": "main (failure cleanup)",
+      "line": 2927
+    }
+  ],
+  "roots": [
+    {
+      "locations": [
+        {
+          "file": "tools/tiffcrop.c",
+          "function": "main (failure cleanup)",
+          "line": 2927
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "notes": "Source-review annotation; captured logs are external."
+}

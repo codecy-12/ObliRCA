@@ -1,0 +1,38 @@
+{
+  "id": "SP-23",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-17591"
+  ],
+  "applications": [
+    "libarchive / metadata API"
+  ],
+  "versions": {
+    "vulnerable": "commit 33da30bd9c111b897b558e73c4c3f498c680350d",
+    "fixed": "commit a8bff736413a42613f4738db9ebde75b4779ab59"
+  },
+  "directory": "benchmark/scenarios/SP-23",
+  "log_path": "data/logs/SP-23.sysdig",
+  "source_root": "data/sources/SP-23/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "libarchive/archive_entry.c",
+          "function": "archive_entry_copy_mac_metadata",
+          "line": 1565
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

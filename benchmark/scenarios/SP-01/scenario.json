@@ -1,0 +1,38 @@
+{
+  "id": "SP-01",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-53817"
+  ],
+  "applications": [
+    "7-Zip / 7zz"
+  ],
+  "versions": {
+    "vulnerable": "24.09",
+    "fixed": "25.00"
+  },
+  "directory": "benchmark/scenarios/SP-01",
+  "log_path": "data/logs/SP-01.sysdig",
+  "source_root": "data/sources/SP-01/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "CPP/7zip/Archive/ComHandler.cpp",
+          "function": "NArchive::NCom::CHandler::GetStream",
+          "line": 851
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C++"
+  }
+}

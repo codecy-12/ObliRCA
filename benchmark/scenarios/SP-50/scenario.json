@@ -1,0 +1,43 @@
+{
+  "id": "SP-50",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-119374"
+  ],
+  "applications": [
+    "sqlite3"
+  ],
+  "versions": {
+    "vulnerable": "fix-parent 4267bbf920ccf352ff3fa813ff2ae513dedea491",
+    "fixed": "fix-commit d9de6eedbe918c074c7556400fa21df5960704d9"
+  },
+  "directory": "benchmark/scenarios/SP-50",
+  "log_path": "data/logs/SP-50.sysdig",
+  "source_root": "data/sources/SP-50/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "ext/fts5/fts5_index.c",
+          "function": "fts5DoSecureDelete",
+          "line": 5520
+        },
+        {
+          "file": "ext/fts5/fts5_index.c",
+          "function": "fts5DoSecureDelete",
+          "line": 5526
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

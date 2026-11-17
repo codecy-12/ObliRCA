@@ -1,0 +1,38 @@
+{
+  "id": "SP-39",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-55780"
+  ],
+  "applications": [
+    "MuPDF"
+  ],
+  "versions": {
+    "vulnerable": "1.26.4",
+    "fixed": "fix commit bdd5d241..."
+  },
+  "directory": "benchmark/scenarios/SP-39",
+  "log_path": "data/logs/SP-39.sysdig",
+  "source_root": "data/sources/SP-39/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "source/html/html-layout.c",
+          "function": "break_word_for_overflow_wrap",
+          "line": 635
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

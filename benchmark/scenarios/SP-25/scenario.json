@@ -1,0 +1,48 @@
+{
+  "id": "SP-25",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-64720"
+  ],
+  "applications": [
+    "libpng"
+  ],
+  "versions": {
+    "vulnerable": "1.6.50",
+    "fixed": "1.6.51"
+  },
+  "directory": "benchmark/scenarios/SP-25",
+  "log_path": "data/logs/SP-25.sysdig",
+  "source_root": "data/sources/SP-25/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "pngrtran.c",
+          "function": "png_init_read_transformations",
+          "line": 1786
+        },
+        {
+          "file": "pngrtran.c",
+          "function": "png_init_read_transformations",
+          "line": 1790
+        },
+        {
+          "file": "pngrtran.c",
+          "function": "png_init_read_transformations",
+          "line": 1794
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

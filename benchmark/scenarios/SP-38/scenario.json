@@ -1,0 +1,32 @@
+{
+  "id": "SP-38",
+  "group": "single_program",
+  "cves": [
+    "CVE-2025-46206"
+  ],
+  "applications": [
+    "MuPDF"
+  ],
+  "versions": {
+    "vulnerable": "1.25.5",
+    "fixed": "fix commit 0ec7e4d..."
+  },
+  "directory": "benchmark/scenarios/SP-38",
+  "log_path": "data/logs/SP-38.sysdig",
+  "source_root": "data/sources/SP-38/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": false,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C"
+  }
+}

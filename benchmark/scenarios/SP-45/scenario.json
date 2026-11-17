@@ -1,0 +1,38 @@
+{
+  "id": "SP-45",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-26981"
+  ],
+  "applications": [
+    "OpenEXR"
+  ],
+  "versions": {
+    "vulnerable": "3.4.4",
+    "fixed": "3.4.5 / 3.3.7"
+  },
+  "directory": "benchmark/scenarios/SP-45",
+  "log_path": "data/logs/SP-45.sysdig",
+  "source_root": "data/sources/SP-45/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "src/lib/OpenEXR/ImfContextInit.cpp",
+          "function": "istream_nonparallel_read",
+          "line": 123
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "pending",
+  "metadata": {
+    "language": "C/C++"
+  }
+}

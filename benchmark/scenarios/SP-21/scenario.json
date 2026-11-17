@@ -1,0 +1,43 @@
+{
+  "id": "SP-21",
+  "group": "single_program",
+  "cves": [
+    "CVE-2026-15028"
+  ],
+  "applications": [
+    "libarchive / bsdtar"
+  ],
+  "versions": {
+    "vulnerable": "commit 42b2444920ecb1d6a08fbe9c4e1d89dc05384db8",
+    "fixed": "commit f93abd161ec37326c566f4f0efcd44fe7a66dd95"
+  },
+  "directory": "benchmark/scenarios/SP-21",
+  "log_path": "data/logs/SP-21.sysdig",
+  "source_root": "data/sources/SP-21/vuln",
+  "symptom": null,
+  "hops": 0,
+  "root_causes": [
+    {
+      "locations": [
+        {
+          "file": "libarchive/archive_read_support_format_tar.c",
+          "function": "tar_atol_base_n",
+          "line": 3520
+        },
+        {
+          "file": "libarchive/archive_read_support_format_tar.c",
+          "function": "tar_atol_base_n",
+          "line": 3528
+        }
+      ],
+      "obligations": [],
+      "mechanisms": [],
+      "notes": ""
+    }
+  ],
+  "n_l": true,
+  "annotation_status": "confirmed_eligible",
+  "metadata": {
+    "language": "C"
+  }
+}

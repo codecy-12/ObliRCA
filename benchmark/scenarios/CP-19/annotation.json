@@ -1,0 +1,8 @@
+{
+  "scenario_id": "CP-19",
+  "status": "confirmed_existing_guard",
+  "n_l": true,
+  "locations": [],
+  "roots": [],
+  "notes": "Source-review annotation; captured logs are external."
+}

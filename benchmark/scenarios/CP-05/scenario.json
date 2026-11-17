@@ -1,0 +1,18 @@
+{
+  "id": "CP-05",
+  "group": "cross_program",
+  "cves": [
+    "CVE-2026-63686"
+  ],
+  "applications": [],
+  "versions": {},
+  "directory": "benchmark/scenarios/CP-05",
+  "log_path": "data/logs/CP-05.sysdig",
+  "source_root": "data/sources/CP-05/vuln",
+  "symptom": null,
+  "hops": 1,
+  "root_causes": [],
+  "n_l": true,
+  "annotation_status": "confirmed_existing_guard",
+  "metadata": {}
+}
